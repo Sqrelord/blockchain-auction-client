@@ -1,0 +1,83 @@
+view,
+scroll-view,
+swiper,
+swiper-item,
+cover-view,
+cover-image,
+icon,
+text,
+rich-text,
+progress,
+button,
+checkbox,
+form,
+input,
+label,
+radio,
+slider,
+switch,
+textarea,
+navigator,
+audio,
+camera,
+image,
+video {
+  box-sizing: border-box;
+}
+
+.b-b:after,
+.b-t:after {
+  position: absolute;
+  right: 0;
+  left: 0;
+  z-index: 3;
+  height: 0;
+  content: '';
+  border-bottom: 1px solid $border-color-base;
+  transform: scaleY(.5);
+}
+
+.b-b:after {
+  bottom: 0;
+}
+
+.b-t:after {
+  top: 0;
+}
+
+button {
+  height: 80rpx;
+  font-size: 34rpx;
+  font-weight: normal;
+  line-height: 80rpx;
+
+  &.no-border:before,
+  &.no-border:after {
+    border: 0;
+  }
+}
+
+button[type=default] {
+  color: $font-color-dark;
+}
+
+.input-placeholder {
+  color: #999999;
+}
+
+.placeholder {
+  color: #999999;
+}
+
+view {
+  font-size: 28rpx;
+  line-height: 1.5;
+}
+
+progress, checkbox-group {
+  width: 100%;
+}
+
+form {
+  width: 100%;
+}

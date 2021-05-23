@@ -1,0 +1,343 @@
+<xs:schema
+  xmlns:xs='http://www.w3.org/2001/XMLSchema'
+  xmlns:wx='wx'
+>
+  <xs:include schemaLocation="wechat-core.xsd"/>
+
+
+  <!---custom tag-->
+
+  <xs:element name="customTag">
+    <xs:annotation>
+      <xs:documentation>
+
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+
+  <xs:element name="views" type="weChatType"/>
+  <xs:element name="heading" type="weChatType"/>
+  <xs:element name="subheading" type="weChatType"/>
+  <xs:element name="heading-main" type="weChatType"/>
+  <xs:element name="heading-second" type="weChatType"/>
+  <xs:element name="heading-third" type="weChatType"/>
+  <xs:element name="heading-fourth" type="weChatType"/>
+  <xs:element name="heading-fifth" type="weChatType"/>
+  <xs:element name="heading-sixth" type="weChatType"/>
+  <xs:element name="layout" type="weChatType"/>
+  <xs:element name="list" type="weChatType"/>
+  <xs:element name="item" type="weChatType"/>
+  <xs:element name="box" type="weChatType"/>
+  <xs:element name="block" type="weChatType"/>
+  <xs:element name="content" type="weChatType"/>
+  <xs:element name="wizard" type="weChatType"/>
+  <xs:element name="advert" type="weChatType"/>
+  <xs:element name="tree" type="weChatType"/>
+  <xs:element name="group" type="weChatType"/>
+  <xs:element name="panel" type="weChatType"/>
+  <xs:element name="grid" type="weChatType"/>
+  <xs:element name="row" type="weChatType"/>
+  <xs:element name="column" type="weChatType"/>
+  <xs:element name="toolbar" type="weChatType"/>
+  <xs:element name="dropdown" type="weChatType"/>
+  <xs:element name="branch" type="weChatType"/>
+  <xs:element name="branches" type="weChatType"/>
+  <xs:element name="twig" type="weChatType"/>
+  <xs:element name="forest" type="weChatType"/>
+  <xs:element name="searchbar" type="weChatType"/>
+  <xs:element name="bg" type="weChatType"/>
+  <xs:element name="mask" type="weChatType"/>
+  <xs:element name="tabs" type="weChatType"/>
+  <xs:element name="tab" type="weChatType"/>
+  <xs:element name="topbar" type="weChatType"/>
+  <xs:element name="hdbar" type="weChatType"/>
+  <xs:element name="ftbar" type="weChatType"/>
+  <xs:element name="module" type="weChatType"/>
+  <xs:element name="tier" type="weChatType"/>
+  <xs:element name="container" type="weChatType"/>
+  <xs:element name="card" type="weChatType"/>
+  <xs:element name="scene" type="weChatType"/>
+  <xs:element name="layer" type="weChatType"/>
+  <xs:element name="tag" type="weChatType"/>
+  <xs:element name="flex" type="weChatType"/>
+  <xs:element name="inline-block" type="weChatType"/>
+  <xs:element name="inline-flex" type="weChatType"/>
+  <xs:element name="inline-grid" type="weChatType"/>
+  <xs:element name="left" type="weChatType"/>
+  <xs:element name="right" type="weChatType"/>
+  <xs:element name="aero-glass" type="weChatType"/>
+  <xs:element name="mod" type="weChatType"/>
+  <xs:element name="swiper-container" type="weChatType"/>
+  <xs:element name="ripple" type="weChatType"/>
+  <xs:element name="ico" type="weChatType"/>
+  <xs:element name="emoji" type="weChatType"/>
+  <xs:element name="meme" type="weChatType"/>
+  <xs:element name="sticker" type="weChatType"/>
+  <xs:element name="emoticon" type="weChatType"/>
+  <xs:element name="phone-statusbar" type="weChatType"/>
+
+  <xs:element name="scrollview">
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+      </xs:choice>
+      <xs:attributeGroup ref="weChatScrollViewAttributeGroup"/>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+      <xs:attribute name="max"/>
+      <xs:attribute name="stay"/>
+      <xs:attribute name="enable-drag" default="true"/>
+      <xs:attribute name="loading-panel" default="true"/>
+      <xs:attribute name="distance"/>
+      <xs:attribute name="panel-max-distance"/>
+      <xs:attribute name="bindstatechange"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="swipe-view">
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+      </xs:choice>
+      <xs:attributeGroup ref="weChatSwiperAttributeGroup"/>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+      <xs:attribute name="type"/>
+      <xs:attribute name="pagination-type"/>
+      <xs:attribute name="tap-toggle"/>
+      <xs:attribute name="items"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="multi-swipe">
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+      </xs:choice>
+      <xs:attributeGroup ref="weChatSwiperAttributeGroup"/>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+      <xs:attribute name="type"/>
+      <xs:attribute name="pagination-type"/>
+      <xs:attribute name="tap-toggle"/>
+      <xs:attribute name="items"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="img">
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+      </xs:choice>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+      <xs:attribute name="src" type="xs:anyURI"/>
+      <xs:attribute name="mode" default="widthFix"/>
+      <xs:attribute name="alt"/>
+      <xs:attribute name="lazy-load"/>
+      <xs:attribute name="binderror"/>
+      <xs:attribute name="bindload"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="banner">
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+      </xs:choice>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+      <xs:attribute name="type"/>
+      <xs:attribute name="items"/>
+      <xs:attribute name="vertical"/>
+      <xs:attribute name="pagination-type" default="true"/>
+      <xs:attribute name="circular" default="true"/>
+      <xs:attribute name="autoplay" default="true"/>
+      <xs:attribute name="interval" default="5000"/>
+      <xs:attribute name="duration" default="500"/>
+      <xs:attribute name="skip-hidden-item-layout" default="true"/>
+      <xs:attribute name="display-multiple-items"/>
+      <xs:attribute name="previous-margin"/>
+      <xs:attribute name="next-margin"/>
+      <xs:attribute name="current"/>
+      <xs:attribute name="tap-toggle"/>
+      <xs:attribute name="bindchange"/>
+      <xs:attribute name="bindtransition"/>
+      <xs:attribute name="bindanimationfinish"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="grid-menu">
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+      </xs:choice>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+      <xs:attribute name="row"/>
+      <xs:attribute name="column"/>
+      <xs:attribute name="vertical" default="false"/>
+      <xs:attribute name="duration" default="500"/>
+      <xs:attribute name="grids"/>
+      <xs:attribute name="bindlink"/>
+      <xs:attribute name="bindchange"/>
+      <xs:attribute name="bindready"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="chat">
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+      </xs:choice>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+      <xs:attribute name="bindupdate"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="tabbar">
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+      </xs:choice>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+      <xs:attribute name="current"/>
+      <xs:attribute name="items"/>
+      <xs:attribute name="color"/>
+      <xs:attribute name="hide-active"/>
+      <xs:attribute name="use-ripple"/>
+      <xs:attribute name="bindchange"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="swipebar">
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+      </xs:choice>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+      <xs:attribute name="stay"/>
+      <xs:attribute name="distance"/>
+      <xs:attribute name="swipe"/>
+      <xs:attribute name="transition"/>
+      <xs:attribute name="bindswitch"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="alphabetic-nav-bar">
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+      </xs:choice>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+      <xs:attribute name="inner"/>
+      <xs:attribute name="alphabetic"/>
+      <xs:attribute name="bindnavto"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="websocket">
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+      </xs:choice>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+      <xs:attribute name="bindattached"/>
+      <xs:attribute name="binddetached"/>
+      <xs:attribute name="bindWebsocketCreate"/>
+      <xs:attribute name="bindSocketTaskConnectSuccess"/>
+      <xs:attribute name="bindSocketTaskConnectFail"/>
+      <xs:attribute name="bindSocketTaskConnectComplete"/>
+      <xs:attribute name="bindSocketTaskOpen"/>
+      <xs:attribute name="bindSocketTaskMessage"/>
+      <xs:attribute name="bindSocketTaskError"/>
+      <xs:attribute name="bindSocketTaskClose"/>
+
+      <xs:attribute name="bindSocketTMPushMessage"/>
+      <xs:attribute name="bindSocketTMSendSuccess"/>
+      <xs:attribute name="bindSocketTMSendFail"/>
+      <xs:attribute name="bindSocketTMConnectionSlow"/>
+      <xs:attribute name="bindSocketTMReconnecting"/>
+      <xs:attribute name="bindSocketTMReconnectComplete"/>
+      <xs:attribute name="bindSocketTMClose"/>
+
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="noticebar">
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+      </xs:choice>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+      <xs:attribute name="bindnotice"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="badge">
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+      </xs:choice>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="inner">
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+      </xs:choice>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="animation">
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+      </xs:choice>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="animate">
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+      </xs:choice>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="animated">
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+      </xs:choice>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="action">
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+      </xs:choice>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="frame">
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+      </xs:choice>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="keyframes">
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+      </xs:choice>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="keyframe">
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+      </xs:choice>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+
+</xs:schema>

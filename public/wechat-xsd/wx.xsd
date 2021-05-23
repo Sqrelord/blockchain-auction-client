@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="wx"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:lang="en">
+
+  <xs:attributeGroup name="weChatLogicAttributeGroup">
+    <xs:attribute name="wx:if"/>
+    <xs:attribute name="wx:elif"/>
+    <xs:attribute name="wx:else"/>
+    <xs:attribute name="wx:for"/>
+    <xs:attribute name="wx:for-index"/>
+    <xs:attribute name="wx:for-item"/>
+    <xs:attribute name="wx:key"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="weChatCaptureEventAttributeGroup">
+    <!--最先触发顺序-->
+    <xs:attribute name="capture-bind:touchstart">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          手指触摸动作开始
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="capture-bind:touchmove">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          手指触摸后移动
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="capture-bind:touchcancel">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          手指触摸动作被打断，如来电提醒，弹窗
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="capture-bind:touchend">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          手指触摸动作结束
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="capture-bind:tap">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          手指触摸后马上离开
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="capture-bind:longpress">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          手指触摸后，超过350ms再离开，如果指定了事件回调函数并触发了这个事件，tap事件将不被触发
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="capture-bind:longtap">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          手指触摸后，超过350ms再离开（推荐使用longpress事件代替）
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="capture-bind:transitionstart">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          会在 WXSS transition 或 wx.createAnimation 动画结开始时触发
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="capture-bind:transitionend">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          会在 WXSS transition 或 wx.createAnimation 动画结束后触发
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="capture-bind:animationstart">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          会在一个 WXSS animation 动画开始时触发
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="capture-bind:animationiteration">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          会在一个 WXSS animation 一次迭代结束时触发
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="capture-bind:animationend">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          会在一个 WXSS animation 动画完成时触发
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="capture-bind:touchforcechange">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          在支持 3D Touch 的 iPhone 设备，重按时会触发
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+
+    <xs:attribute name="capture-catch:touchstart">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          手指触摸动作开始
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="capture-catch:touchmove">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          手指触摸后移动
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="capture-catch:touchcancel">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          手指触摸动作被打断，如来电提醒，弹窗
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="capture-catch:touchend">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          手指触摸动作结束
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="capture-catch:tap">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          手指触摸后马上离开
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="capture-catch:longpress">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          手指触摸后，超过350ms再离开，如果指定了事件回调函数并触发了这个事件，tap事件将不被触发
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="capture-catch:longtap">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          手指触摸后，超过350ms再离开（推荐使用longpress事件代替）
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="capture-catch:transitionstart">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          会在 WXSS transition 或 wx.createAnimation 动画结开始时触发
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="capture-catch:transitionend">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          会在 WXSS transition 或 wx.createAnimation 动画结束后触发
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="capture-catch:animationstart">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          会在一个 WXSS animation 动画开始时触发
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="capture-catch:animationiteration">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          会在一个 WXSS animation 一次迭代结束时触发
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="capture-catch:animationend">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          会在一个 WXSS animation 动画完成时触发
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="capture-catch:touchforcechange">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          在支持 3D Touch 的 iPhone 设备，重按时会触发
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+
+  </xs:attributeGroup>
+
+  <xs:attributeGroup name="weChatWxsEventAttributeGroup">
+    <xs:attribute name="change:prop" default="{{wxs.propEventHandle}}">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}=>(Event,OwnerInstance)
+          属性前面带change:前缀,prop 属性被设置的时候触发 WXS 函数
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="prop" default="{{propName}}">
+      <xs:annotation>
+        <xs:documentation>
+          {String}
+          当 prop 的值被设置 WXS 函数就会触发，而不只是值发生改变，所以在页面初始化的时候会调用一次WxsPropObserver的函数。
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:attributeGroup>
+</xs:schema>

@@ -1,0 +1,5240 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'
+           xmlns:svg="svg"
+>
+  <!--
+    Warning:
+    Warning:
+    Warning: Do not change the targetNamespace above
+    Warning:
+    Warning:
+-->
+
+  <!-- TODO: list of charsets for meta intellisense -->
+  <!-- TODO: DOM5 -->
+
+  <xs:annotation>
+    <xs:documentation>
+      Microsoft Visual Studio schema for HTML5
+    </xs:documentation>
+  </xs:annotation>
+
+  <xs:include schemaLocation="commonHTML5Types.xsd"/>
+  <xs:include schemaLocation="wechat-extend.xsd"/>
+  <xs:attributeGroup name="coreAttributeGroup">
+    <xs:attributeGroup ref="commonHTML5coreAttributeGroup"/>
+    <xs:attributeGroup ref="rdfaAttributeGroup"/>
+    <xs:attribute name="contenteditable">
+      <xs:simpleType>
+        <xs:restriction base="xs:NMTOKEN">
+          <xs:enumeration value="true"/>
+          <xs:enumeration value="false"/>
+          <xs:enumeration value="inherit"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="draggable">
+      <xs:simpleType>
+        <xs:restriction base="xs:NMTOKEN">
+          <xs:enumeration value="true"/>
+          <xs:enumeration value="false"/>
+          <xs:enumeration value="auto"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="spellcheck">
+      <xs:simpleType>
+        <xs:restriction base="xs:NMTOKEN">
+          <xs:enumeration value="true"/>
+          <xs:enumeration value="false"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+
+  <xs:attributeGroup name="ariaAttributeGroup">
+    <xs:attributeGroup ref="commonHTML5ariaAttributeGroup"/>
+    <xs:attribute name="aria-invalid" default="false">
+      <xs:simpleType>
+        <xs:restriction base="xs:NMTOKEN">
+          <xs:enumeration value="grammar"/>
+          <xs:enumeration value="false"/>
+          <xs:enumeration value="spelling"/>
+          <xs:enumeration value="true"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+
+  <xs:attributeGroup name="playToAttributeGroup">
+    <xs:attribute name="x-ms-playToDisabled">
+      <xs:simpleType>
+        <xs:restriction base="xs:NMTOKEN">
+          <xs:enumeration value="true"/>
+          <xs:enumeration value="false"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="x-ms-playToPrimary">
+      <xs:simpleType>
+        <xs:restriction base="xs:NMTOKEN">
+          <xs:enumeration value="true"/>
+          <xs:enumeration value="false"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="x-ms-playToPreferredSourceUri"/>
+  </xs:attributeGroup>
+
+  <xs:attributeGroup name="commonEventsGroup">
+    <xs:attributeGroup ref="commonHTML5commonEventsGroup"/>
+  </xs:attributeGroup>
+
+  <xs:attributeGroup name="commonAttributeGroup">
+    <xs:attributeGroup ref="coreAttributeGroup"/>
+    <xs:attributeGroup ref="microdataAttributeGroup"/>
+    <xs:attributeGroup ref="ariaAttributeGroup"/>
+    <xs:attributeGroup ref="commonEventsGroup"/>
+    <xs:attributeGroup ref="coreServerAttributeGroup"/>
+    <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+  </xs:attributeGroup>
+
+  <xs:group name="metadataContent">
+    <xs:choice>
+      <xs:element ref="base"/>
+      <xs:element ref="command"/>
+      <xs:element ref="link"/>
+      <xs:element ref="meta"/>
+      <xs:element ref="noscript"/>
+      <xs:element ref="script"/>
+      <xs:element ref="style"/>
+      <xs:element name="title" type="titleType" minOccurs="1" maxOccurs="1"/>
+    </xs:choice>
+  </xs:group>
+
+  <xs:group name="flowContent">
+    <xs:choice>
+
+      <xs:element ref="a"/>
+      <xs:element ref="abbr"/>
+      <xs:element ref="area"/>
+      <xs:element ref="address"/>
+      <xs:element ref="article"/>
+      <xs:element ref="aside"/>
+      <xs:element ref="html-audio"/>
+
+      <xs:element ref="b"/>
+      <xs:element ref="bdi"/>
+      <xs:element ref="bdo"/>
+      <xs:element ref="big"/>
+      <xs:element ref="blockquote"/>
+      <xs:element ref="br"/>
+      <xs:element ref="html-button"/>
+
+      <xs:element ref="html-canvas"/>
+      <xs:element ref="cite"/>
+      <xs:element ref="code"/>
+      <xs:element ref="command"/>
+
+      <xs:element ref="datalist"/>
+      <xs:element ref="del"/>
+      <xs:element ref="details"/>
+      <xs:element ref="dfn"/>
+      <xs:element ref="dialog"/>
+      <xs:element ref="div"/>
+      <xs:element ref="dl"/>
+
+      <xs:element ref="em"/>
+      <xs:element ref="embed"/>
+
+      <xs:element ref="fieldset"/>
+      <xs:element ref="figcaption"/>
+      <xs:element ref="figure"/>
+      <xs:element ref="footer"/>
+      <xs:element ref="html-form"/>
+
+      <xs:element ref="h1"/>
+      <xs:element ref="h2"/>
+      <xs:element ref="h3"/>
+      <xs:element ref="h4"/>
+      <xs:element ref="h5"/>
+      <xs:element ref="h6"/>
+      <xs:element ref="header"/>
+      <xs:element ref="hgroup"/>
+      <xs:element ref="hr"/>
+      <xs:element ref="wbr"/>
+
+      <xs:element ref="i"/>
+      <xs:element ref="iframe"/>
+      <xs:element ref="html-img"/>
+      <xs:element ref="html-input"/>
+      <xs:element ref="ins"/>
+
+      <xs:element ref="kbd"/>
+      <xs:element ref="keygen"/>
+
+      <xs:element ref="html-label"/>
+      <xs:element ref="link"/>
+
+      <xs:element ref="main"/>
+      <xs:element ref="html-map"/>
+      <xs:element ref="mark"/>
+      <xs:element ref="math"/>
+      <xs:element ref="menu"/>
+      <xs:element ref="meta"/>
+      <xs:element ref="meter"/>
+
+      <xs:element ref="nav"/>
+      <xs:element ref="noscript"/>
+
+      <xs:element ref="ol"/>
+      <xs:element ref="object"/>
+      <xs:element ref="output"/>
+
+      <xs:element ref="p"/>
+      <xs:element ref="param"/>
+      <xs:element ref="pre"/>
+      <xs:element ref="html-progress"/>
+
+      <xs:element ref="q"/>
+
+      <xs:element ref="ruby"/>
+
+      <xs:element ref="s"/>
+      <xs:element ref="samp"/>
+      <xs:element ref="script"/>
+      <xs:element ref="section"/>
+      <xs:element ref="select"/>
+      <xs:element ref="small"/>
+      <xs:element ref="source"/>
+      <xs:element ref="span"/>
+      <xs:element ref="strong"/>
+      <xs:element ref="style"/>
+      <xs:element ref="sub"/>
+      <xs:element ref="sup"/>
+      <xs:element ref="svg"/>
+
+      <xs:element ref="table"/>
+      <xs:element ref="html-textarea"/>
+      <xs:element ref="time"/>
+      <xs:element ref="track"/>
+
+      <xs:element ref="u"/>
+      <xs:element ref="ul"/>
+
+      <xs:element ref="var"/>
+      <xs:element ref="html-video"/>
+
+      <xs:element ref="x-ms-webview"/>
+
+
+      <xs:group ref="customFlowContent"/>
+
+    </xs:choice>
+  </xs:group>
+
+  <xs:group name="headingContent">
+    <xs:choice>
+      <xs:element ref="h1"/>
+      <xs:element ref="h2"/>
+      <xs:element ref="h3"/>
+      <xs:element ref="h4"/>
+      <xs:element ref="h5"/>
+      <xs:element ref="h6"/>
+      <xs:element ref="hgroup"/>
+    </xs:choice>
+  </xs:group>
+
+  <xs:group name="sectioningContent">
+    <xs:choice>
+      <xs:element ref="article"/>
+      <xs:element ref="aside"/>
+      <xs:element ref="nav"/>
+      <xs:element ref="section"/>
+    </xs:choice>
+  </xs:group>
+
+  <xs:group name="phrasingContent">
+    <xs:choice>
+      <xs:element ref="a"/>
+      <xs:element ref="abbr"/>
+      <xs:element ref="area"/>
+      <xs:element ref="html-audio"/>
+
+      <xs:element ref="b"/>
+      <xs:element ref="bdi"/>
+      <xs:element ref="bdo"/>
+      <xs:element ref="big"/>
+      <xs:element ref="br"/>
+      <xs:element ref="html-button"/>
+
+      <xs:element ref="html-canvas"/>
+      <xs:element ref="cite"/>
+      <xs:element ref="code"/>
+      <xs:element ref="command"/>
+
+      <xs:element ref="datalist"/>
+      <xs:element ref="del"/>
+      <xs:element ref="dfn"/>
+
+      <xs:element ref="em"/>
+      <xs:element ref="embed"/>
+
+      <xs:element ref="i"/>
+      <xs:element ref="iframe"/>
+      <xs:element ref="html-img"/>
+      <xs:element ref="html-input"/>
+      <xs:element ref="ins"/>
+
+      <xs:element ref="kbd"/>
+      <xs:element ref="keygen"/>
+
+      <xs:element ref="html-label"/>
+      <xs:element ref="link"/>
+
+      <xs:element ref="html-map"/>
+      <xs:element ref="mark"/>
+      <xs:element ref="math"/>
+      <xs:element ref="meta"/>
+      <xs:element ref="meter"/>
+
+      <xs:element ref="noscript"/>
+
+      <xs:element ref="object"/>
+      <xs:element ref="output"/>
+
+      <xs:element ref="pre"/>
+      <xs:element ref="html-progress"/>
+
+      <xs:element ref="q"/>
+
+      <xs:element ref="ruby"/>
+
+      <xs:element ref="s"/>
+      <xs:element ref="samp"/>
+      <xs:element ref="script"/>
+      <xs:element ref="select"/>
+      <xs:element ref="small"/>
+      <xs:element ref="span"/>
+      <xs:element ref="strong"/>
+      <xs:element ref="sub"/>
+      <xs:element ref="sup"/>
+      <xs:element ref="svg"/>
+
+      <xs:element ref="html-textarea"/>
+      <xs:element ref="time"/>
+
+      <xs:element ref="u"/>
+
+      <xs:element ref="var"/>
+      <xs:element ref="html-video"/>
+
+      <xs:element ref="wbr"/>
+      <xs:group ref="customFlowContent"/>
+    </xs:choice>
+  </xs:group>
+
+  <xs:group name="formElements">
+    <xs:choice>
+      <xs:element ref="html-button"/>
+      <xs:element ref="fieldset"/>
+      <xs:element ref="html-input"/>
+      <xs:element ref="keygen"/>
+      <xs:element ref="html-label"/>
+      <xs:element ref="object"/>
+      <xs:element ref="output"/>
+      <xs:element ref="select"/>
+      <xs:element ref="html-textarea"/>
+    </xs:choice>
+  </xs:group>
+
+  <xs:group name="labelElements">
+    <xs:choice>
+      <xs:element ref="html-button"/>
+      <xs:element ref="html-input"/>
+      <xs:element ref="keygen"/>
+      <xs:element ref="select"/>
+      <xs:element ref="html-textarea"/>
+    </xs:choice>
+  </xs:group>
+
+  <xs:group name="interactiveContent">
+    <xs:choice>
+      <xs:element ref="a"/>
+      <xs:element ref="html-audio"/>
+      <xs:element ref="html-button"/>
+      <xs:element ref="details"/>
+      <xs:element ref="embed"/>
+      <xs:element ref="iframe"/>
+      <xs:element ref="html-img"/>
+      <xs:element ref="html-input"/>
+      <xs:element ref="keygen"/>
+      <xs:element ref="html-label"/>
+      <xs:element ref="menu"/>
+      <xs:element ref="object"/>
+      <xs:element ref="select"/>
+      <xs:element ref="html-textarea"/>
+      <xs:element ref="html-video"/>
+      <xs:element ref="x-ms-webview"/>
+    </xs:choice>
+  </xs:group>
+
+
+  <!-- End of group definitions -->
+
+  <!--================ Document Structure ==================================-->
+
+  <!-- This element must be the first one in the file! -->
+  <xs:element name="html">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element name="body" type="bodyType" minOccurs="1" maxOccurs="1"/>
+        <xs:element name="head" type="headType" minOccurs="0" maxOccurs="1"/>
+      </xs:choice>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attribute name="manifest" type="xs:anyURI"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!--================ Document Head =======================================-->
+
+  <xs:element name="head" type="headType"/>
+
+  <xs:complexType name="headType">
+    <xs:choice>
+      <xs:group ref="metadataContent"/>
+    </xs:choice>
+    <xs:attributeGroup ref="commonAttributeGroup"/>
+  </xs:complexType>
+
+  <xs:element name="title" type="titleType"/>
+
+  <xs:complexType name="titleType" mixed="true">
+    <xs:attributeGroup ref="commonAttributeGroup"/>
+  </xs:complexType>
+
+  <!-- document base URI -->
+  <xs:element name="base">
+    <xs:complexType>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attribute name="href" type="xs:anyURI"/>
+      <xs:attribute name="target" type="browsingContext"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="link">
+    <xs:complexType>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attribute name="href" type="xs:anyURI"/>
+      <xs:attribute name="hreflang" type="i18LanguageCode"/>
+      <xs:attribute name="rel" type="linkLinkType" use="required"/>
+      <xs:attribute name="media" type="mediaType" default="screen"/>
+      <xs:attribute name="type" type="contentType"/>
+      <xs:attribute name="sizes"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="meta">
+    <xs:complexType>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attribute name="http-equiv" type="metaHttpEquivType"/>
+      <xs:attribute name="name" type="metaNameType"/>
+      <xs:attribute name="content"/>
+      <xs:attribute name="charset" type="charsetType"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- style info, which may include CDATA sections -->
+
+  <xs:element name="style">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attribute name="type" type="styleTypeType"/>
+      <xs:attribute name="media" type="mediaType" default="screen"/>
+      <xs:attribute name="scoped"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- script statements, which may include CDATA sections -->
+
+  <xs:element name="script">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="coreAttributeGroup"/>
+      <xs:attribute name="charset" type="charsetType"/>
+      <xs:attribute name="type" type="scriptTypeType"/>
+      <xs:attribute name="src" type="xs:anyURI"/>
+      <xs:attribute name="defer"/>
+      <xs:attribute name="async"/>
+      <xs:attributeGroup ref="wx:weChatLogicAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- alternate Content container for non script-based rendering -->
+
+  <xs:element name="noscript">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!--=================== Document Body ====================================-->
+
+  <xs:element name="body" type="bodyType"/>
+
+  <xs:complexType name="bodyType" mixed="true">
+    <xs:choice>
+      <xs:group ref="flowContent"/>
+    </xs:choice>
+    <xs:attributeGroup ref="commonAttributeGroup"/>
+    <xs:attribute name="onafterprint"/>
+    <xs:attribute name="onbeforeprint"/>
+    <xs:attribute name="onbeforeunload"/>
+    <xs:attribute name="onhashchange"/>
+    <xs:attribute name="onmessage"/>
+    <xs:attribute name="onoffline"/>
+    <xs:attribute name="ononline"/>
+    <xs:attribute name="onpopstate"/>
+    <xs:attribute name="onpagehide"/>
+    <xs:attribute name="onpageshow"/>
+    <xs:attribute name="onredo"/>
+    <xs:attribute name="onresize"/>
+    <xs:attribute name="onstorage"/>
+    <xs:attribute name="onundo"/>
+    <xs:attribute name="onunload"/>
+  </xs:complexType>
+
+  <xs:element name="section" type="simpleFlowContentElement"/>
+  <xs:element name="nav" type="simpleFlowContentElement"/>
+
+  <xs:element name="article">
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+      </xs:choice>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attribute name="pubdate"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="aside" type="simpleFlowContentElement"/>
+
+  <xs:element name="h1" type="simplePhrasingContentElement"/>
+  <xs:element name="h2" type="simplePhrasingContentElement"/>
+  <xs:element name="h3" type="simplePhrasingContentElement"/>
+  <xs:element name="h4" type="simplePhrasingContentElement"/>
+  <xs:element name="h5" type="simplePhrasingContentElement"/>
+  <xs:element name="h6" type="simplePhrasingContentElement"/>
+
+  <xs:element name="hgroup">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+      </xs:choice>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="header" type="simpleFlowContentElement"/>
+  <xs:element name="footer" type="simpleFlowContentElement"/>
+  <xs:element name="address" type="simpleFlowContentElement"/>
+
+  <xs:element name="p" type="simplePhrasingContentElement"/>
+
+  <xs:element name="br">
+    <xs:complexType>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="pre" type="simplePhrasingContentElement"/>
+  <xs:element name="dialog">
+    <xs:complexType>
+      <!-- TODO: support xs:sequence
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="dd" />
+        <xs:element ref="dt" />
+      </xs:sequence>
+        -->
+      <xs:choice>
+        <xs:element ref="dd"/>
+        <xs:element ref="dt"/>
+      </xs:choice>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="blockquote">
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+      </xs:choice>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attribute name="cite" type="xs:anyURI"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="ol">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="li"/>
+      </xs:choice>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attribute name="start" type="xs:integer"/>
+      <xs:attribute name="reversed" type="olReversedType"/>
+      <xs:attribute name="type"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="ul">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="li"/>
+      </xs:choice>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="li">
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+      </xs:choice>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attribute name="value" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="dl">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="dd"/>
+        <xs:element ref="dt"/>
+      </xs:choice>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="dt">
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:group ref="phrasingContent"/>
+        <xs:element ref="dialog"/>
+      </xs:choice>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="dd">
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+      </xs:choice>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!--================== The Anchor Element ================================-->
+
+  <xs:element name="a">
+    <xs:complexType mixed="true">
+      <!-- Content Model -->
+      <!-- Attributes -->
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attributeGroup ref="aServerAttributeGroup"/>
+      <xs:attribute name="href" type="xs:anyURI"/>
+      <xs:attribute name="target" type="browsingContext"/>
+      <xs:attribute name="name"/>
+      <xs:attribute name="ping"/>
+      <xs:attribute name="rel" type="anchorLinkType"/>
+      <xs:attribute name="media" type="mediaType" default="screen"/>
+      <xs:attribute name="hreflang" type="i18LanguageCode"/>
+      <xs:attribute name="type" type="simpleContentType"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="em" type="simplePhrasingContentElement"/>
+  <xs:element name="strong" type="simplePhrasingContentElement"/>
+  <xs:element name="small" type="simplePhrasingContentElement"/>
+  <xs:element name="big" type="simplePhrasingContentElement"/>
+  <xs:element name="cite" type="simplePhrasingContentElement"/>
+  <xs:element name="bdi" type="simplePhrasingContentElement"/>
+
+  <xs:element name="q">
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:group ref="phrasingContent"/>
+      </xs:choice>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attribute name="cite" type="xs:anyURI"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="dfn" type="simplePhrasingContentElement"/>
+  <xs:element name="abbr" type="simplePhrasingContentElement"/>
+  <xs:element name="code" type="simplePhrasingContentElement"/>
+  <xs:element name="var" type="simplePhrasingContentElement"/>
+  <xs:element name="samp" type="simplePhrasingContentElement"/>
+  <xs:element name="kbd" type="simplePhrasingContentElement"/>
+  <xs:element name="sub" type="simplePhrasingContentElement"/>
+  <xs:element name="sup" type="simplePhrasingContentElement"/>
+  <xs:element name="i" type="simplePhrasingContentElement"/>
+  <xs:element name="b" type="simplePhrasingContentElement"/>
+  <xs:element name="u" type="simplePhrasingContentElement"/>
+  <xs:element name="s" type="simplePhrasingContentElement"/>
+  <xs:element name="mark" type="simplePhrasingContentElement"/>
+
+  <xs:element name="html-progress">
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:group ref="phrasingContent"/>
+      </xs:choice>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attribute name="value" type="xs:float"/>
+      <xs:attribute name="max" type="xs:float"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="meter">
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:group ref="phrasingContent"/>
+      </xs:choice>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attribute name="value" type="xs:float" use="required"/>
+      <xs:attribute name="min" type="xs:float"/>
+      <xs:attribute name="max" type="xs:float"/>
+      <xs:attribute name="low" type="xs:float"/>
+      <xs:attribute name="high" type="xs:float"/>
+      <xs:attribute name="optimum" type="xs:float"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="time">
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:group ref="phrasingContent"/>
+      </xs:choice>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attribute name="datetime" type="xs:dateTime"/>
+      <xs:attribute name="pubdate"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="ruby">
+    <xs:complexType mixed="true">
+      <!-- TODO: support xs:sequence
+      <xs:sequence minOccurs="1" maxOccurs="unbounded">
+          <xs:group ref="phrasingContent" />
+        <xs:choice>
+          <xs:element name="rt" type="rtType" minOccurs="1" maxOccurs="1" />
+          <xs:element name="rp" type="rpType" minOccurs="1" maxOccurs="1" />
+        </xs:choice>
+      </xs:sequence>
+        -->
+      <xs:choice>
+        <xs:group ref="phrasingContent"/>
+        <xs:element ref="rt"/>
+        <xs:element ref="rp"/>
+      </xs:choice>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="rt" type="simplePhrasingContentElement"/>
+  <xs:element name="rp" type="simplePhrasingContentElement"/>
+  <xs:element name="bdo" type="simplePhrasingContentElement"/>
+  <xs:element name="span" type="simplePhrasingContentElement"/>
+
+  <!--=================== Inserted/Deleted Text ============================-->
+
+  <xs:element name="ins">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attribute name="cite" type="xs:anyURI"/>
+      <xs:attribute name="datetime" type="xs:dateTime"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="del">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attribute name="cite" type="xs:anyURI"/>
+      <xs:attribute name="datetime" type="xs:dateTime"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!--==================== Embedded content ======================================-->
+
+  <xs:element name="figure">
+    <xs:complexType mixed="true">
+      <!-- TODO: support xs:sequence
+      <xs:choice minOccurs="1" maxOccurs="1">
+        <xs:sequence minOccurs="1" maxOccurs="1">
+          <xs:element ref="legend" />
+          <xs:group ref="flowContent" />
+        </xs:sequence>
+        <xs:sequence minOccurs="1" maxOccurs="1">
+          <xs:group ref="flowContent" />
+          <xs:element ref="legend" />
+        </xs:sequence>
+        <xs:group ref="flowContent" />
+      </xs:choice>
+        -->
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+        <xs:element name="legend" type="legendType" minOccurs="0" maxOccurs="1"/>
+      </xs:choice>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="figcaption" type="simpleFlowContentElement"/>
+
+  <xs:element name="html-img">
+    <xs:complexType>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attributeGroup ref="playToAttributeGroup"/>
+      <xs:attribute name="alt"/>
+      <xs:attribute name="crossorigin"/>
+      <xs:attribute name="src" type="xs:anyURI" use="required"/>
+      <xs:attribute name="height" type="xs:nonNegativeInteger"/>
+      <xs:attribute name="width" type="xs:nonNegativeInteger"/>
+      <xs:attribute name="usemap"/>
+      <xs:attribute name="ismap" type="imgIsmapType"/>
+      <xs:attribute name="border" type="imgBorderType"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="iframe">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attribute name="src" type="xs:anyURI"/>
+      <xs:attribute name="srcdoc"/>
+      <xs:attribute name="name" type="browsingContext"/>
+      <xs:attribute name="sandbox" type="iframeSandboxType"/>
+      <xs:attribute name="seamless" type="iframeSeamlessType"/>
+      <xs:attribute name="width" type="xs:nonNegativeInteger"/>
+      <xs:attribute name="height" type="xs:nonNegativeInteger"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="x-ms-webview">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attribute name="src" type="xs:anyURI"/>
+      <xs:attribute name="width" type="xs:nonNegativeInteger"/>
+      <xs:attribute name="height" type="xs:nonNegativeInteger"/>
+      <xs:attribute name="ondomcontentloaded"/>
+      <xs:attribute name="onloadcomplete"/>
+      <xs:attribute name="onnavigated"/>
+      <xs:attribute name="onnavigating"/>
+      <xs:attribute name="onnavigationfailed"/>
+      <xs:attribute name="onscriptnotify"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="embed">
+    <xs:complexType>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attributeGroup ref="playToAttributeGroup"/>
+      <xs:attribute name="src" type="xs:anyURI"/>
+      <xs:attribute name="height" type="xs:nonNegativeInteger"/>
+      <xs:attribute name="width" type="xs:nonNegativeInteger"/>
+      <xs:attribute name="type" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="object">
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:element name="param" type="paramType" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:choice>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attributeGroup ref="playToAttributeGroup"/>
+      <xs:attribute name="data" type="xs:anyURI"/>
+      <xs:attribute name="type" type="xs:string"/>
+      <xs:attribute name="height" type="xs:nonNegativeInteger"/>
+      <xs:attribute name="width" type="xs:nonNegativeInteger"/>
+      <xs:attribute name="usemap" type="xs:anyURI"/>
+      <xs:attribute name="name" type="browsingContext"/>
+      <xs:attribute name="form"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="param" type="paramType"/>
+
+  <xs:complexType name="paramType">
+    <xs:attributeGroup ref="coreAttributeGroup"/>
+    <xs:attribute name="name" use="required"/>
+    <xs:attribute name="value" use="required"/>
+  </xs:complexType>
+
+  <!--=================== Interactive content =======================================-->
+
+  <xs:element name="details">
+    <xs:complexType mixed="true">
+      <!-- TODO: support xs:sequence
+      <xs:sequence minOccurs="1" maxOccurs="1">
+        <xs:element ref="legend" />
+        <xs:group ref="flowContent" />
+      </xs:sequence>
+      -->
+      <xs:choice>
+        <xs:element name="summary" type="summaryType" minOccurs="1" maxOccurs="1"/>
+        <xs:group ref="flowContent"/>
+      </xs:choice>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attribute name="open" type="detailsOpenType"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="summary" type="summaryType"/>
+
+  <xs:complexType name="summaryType" mixed="true">
+    <xs:attributeGroup ref="coreAttributeGroup"/>
+  </xs:complexType>
+
+  <xs:element name="command">
+    <xs:complexType>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attribute name="type" type="commandTypeType"/>
+      <xs:attribute name="label"/>
+      <xs:attribute name="icon"/>
+      <xs:attribute name="disabled" type="disabledType"/>
+      <xs:attribute name="checked" type="checkedType"/>
+      <xs:attribute name="radiogroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="menu">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="li"/>
+        <xs:group ref="flowContent"/>
+      </xs:choice>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attribute name="type" type="menuTypeType"/>
+      <xs:attribute name="label"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!--=================== Miscellaneous elements =======================================-->
+
+  <xs:element name="legend" type="legendType"/>
+
+  <xs:complexType name="legendType" mixed="true">
+    <xs:choice>
+      <xs:group ref="phrasingContent"/>
+    </xs:choice>
+    <xs:attributeGroup ref="commonAttributeGroup"/>
+  </xs:complexType>
+
+  <xs:element name="div" type="simpleFlowContentElement"/>
+
+  <xs:element name="main" type="simpleFlowContentElement"/>
+
+  <!--=================== Interactive content =======================================-->
+
+  <xs:element name="source">
+    <xs:complexType>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attribute name="src" type="xs:anyURI"/>
+      <xs:attribute name="type" type="mediaMimeType"/>
+      <xs:attribute name="media" type="mediaType" default="screen"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="track">
+    <xs:complexType>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attribute name="kind" type="trackKindType"/>
+      <xs:attribute name="src" type="xs:anyURI"/>
+      <xs:attribute name="srclang" type="i18LanguageCode"/>
+      <xs:attribute name="label"/>
+      <xs:attribute name="default"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="html-audio">
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:element ref="source"/>
+        <xs:element ref="track"/>
+      </xs:choice>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attributeGroup ref="mediaAttributeGroup"/>
+      <xs:attributeGroup ref="playToAttributeGroup"/>
+      <xs:attribute name="crossorigin"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="html-video">
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:element ref="source"/>
+        <xs:element ref="track"/>
+      </xs:choice>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attributeGroup ref="mediaAttributeGroup"/>
+      <xs:attributeGroup ref="playToAttributeGroup"/>
+      <xs:attribute name="poster"/>
+      <xs:attribute name="crossorigin"/>
+      <xs:attribute name="width" type="xs:nonNegativeInteger"/>
+      <xs:attribute name="height" type="xs:nonNegativeInteger"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!--=================== Horizontal Rule ==================================-->
+
+  <xs:element name="hr">
+    <xs:complexType>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!--=================== Word break ==================================-->
+
+  <xs:element name="wbr">
+    <xs:complexType>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+
+  <!--================ Forms ===============================================-->
+
+  <xs:element name="html-form">
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+      </xs:choice>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attributeGroup ref="formServerAttributeGroup"/>
+      <xs:attribute name="accept-charset"/>
+      <xs:attribute name="action" type="xs:anyURI"/>
+      <xs:attribute name="autocomplete" type="autocompleteType"/>
+      <xs:attribute name="enctype" type="enctypeType"/>
+      <xs:attribute name="method" type="formmethodType" default="get"/>
+      <xs:attribute name="name"/>
+      <xs:attribute name="novalidate" type="formNovalidateType"/>
+      <xs:attribute name="target" type="browsingContext"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="fieldset">
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:element name="legend" type="legendType" minOccurs="0" maxOccurs="1"/>
+        <xs:group ref="flowContent"/>
+      </xs:choice>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attribute name="disabled"/>
+      <xs:attribute name="form"/>
+      <xs:attribute name="name"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="html-label">
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:group ref="phrasingContent"/>
+      </xs:choice>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attribute name="form"/>
+      <xs:attribute name="for"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="html-input">
+    <xs:complexType>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attributeGroup ref="inputServerAttributeGroup"/>
+      <xs:attribute name="type" type="inputTypeType"/>
+      <xs:attribute name="accept"/>
+      <xs:attribute name="alt"/>
+      <xs:attribute name="autocomplete" type="autocompleteType"/>
+      <xs:attribute name="autofocus"/>
+      <xs:attribute name="checked" type="checkedType"/>
+      <xs:attribute name="dirname" type="xs:string"/>
+      <xs:attribute name="disabled" type="disabledType"/>
+      <xs:attribute name="form"/>
+      <xs:attribute name="formaction"/>
+      <xs:attribute name="formenctype" type="enctypeType"/>
+      <xs:attribute name="formmethod" type="formmethodType" default="get"/>
+      <xs:attribute name="formnovalidate" type="inputFormnovalidateType"/>
+      <xs:attribute name="formtarget" type="browsingContext"/>
+      <xs:attribute name="height" type="xs:nonNegativeInteger"/>
+      <xs:attribute name="list"/>
+      <xs:attribute name="max"/>
+      <xs:attribute name="maxlength" type="xs:positiveInteger"/>
+      <xs:attribute name="min"/>
+      <xs:attribute name="multiple"/>
+      <xs:attribute name="name" type="xs:string"/>
+      <xs:attribute name="pattern"/>
+      <xs:attribute name="placeholder"/>
+      <xs:attribute name="readonly" type="textareaReadonlyType"/>
+      <xs:attribute name="required"/>
+      <xs:attribute name="size" type="xs:positiveInteger"/>
+      <xs:attribute name="src" type="xs:anyURI"/>
+      <xs:attribute name="step"/>
+      <xs:attribute name="width" type="xs:nonNegativeInteger"/>
+      <xs:attribute name="value"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="html-button">
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+      </xs:choice>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attributeGroup ref="buttonServerAttributeGroup"/>
+      <xs:attribute name="autofocus"/>
+      <xs:attribute name="disabled"/>
+      <xs:attribute name="form"/>
+      <xs:attribute name="formaction"/>
+      <xs:attribute name="formenctype" type="enctypeType"/>
+      <xs:attribute name="formmethod" type="formmethodType" default="get"/>
+      <xs:attribute name="formnovalidate" type="inputFormnovalidateType"/>
+      <xs:attribute name="formtarget" type="browsingContext"/>
+
+      <xs:attribute name="name"/>
+      <xs:attribute name="value"/>
+      <xs:attribute name="type" type="buttonTypeType" default="submit"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="select">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="option"/>
+        <xs:element ref="optgroup"/>
+      </xs:choice>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attributeGroup ref="multipleServerAttributeGroup"/>
+      <xs:attributeGroup ref="selectServerAttributeGroup"/>
+      <xs:attribute name="autofocus"/>
+      <xs:attribute name="disabled"/>
+      <xs:attribute name="form"/>
+      <xs:attribute name="multiple"/>
+      <xs:attribute name="name"/>
+      <xs:attribute name="required"/>
+      <xs:attribute name="size" type="xs:positiveInteger"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="datalist">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="option"/>
+        <xs:group ref="phrasingContent"/>
+      </xs:choice>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="optgroup">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="option"/>
+      </xs:choice>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attribute name="disabled" type="disabledType"/>
+      <xs:attribute name="label" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="option">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attribute name="disabled" type="disabledType"/>
+      <xs:attribute name="selected" type="optionSelectedType"/>
+      <xs:attribute name="label"/>
+      <xs:attribute name="value"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="html-textarea">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attributeGroup ref="textareaServerAttributeGroup"/>
+      <xs:attribute name="autofocus" type="autofocusType"/>
+      <xs:attribute name="disabled" type="disabledType"/>
+      <xs:attribute name="form"/>
+      <xs:attribute name="maxlength" type="xs:positiveInteger"/>
+      <xs:attribute name="name"/>
+      <xs:attribute name="placeholder"/>
+      <xs:attribute name="readonly" type="textareaReadonlyType"/>
+      <xs:attribute name="required"/>
+      <xs:attribute name="rows" type="xs:integer"/>
+      <xs:attribute name="cols" type="xs:integer"/>
+      <xs:attribute name="wrap" type="textareaWrapType"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="keygen">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attribute name="autofocus" type="autofocusType"/>
+      <xs:attribute name="challenge"/>
+      <xs:attribute name="disabled" type="disabledType"/>
+      <xs:attribute name="form"/>
+      <xs:attribute name="keytype" type="keygenKeytypeType"/>
+      <xs:attribute name="name"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="output">
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:group ref="phrasingContent"/>
+      </xs:choice>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attribute name="for"/>
+      <xs:attribute name="form"/>
+      <xs:attribute name="name"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!--================== Canvas ============================-->
+
+  <xs:element name="html-canvas">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attribute name="width" type="xs:nonNegativeInteger"/>
+      <xs:attribute name="height" type="xs:nonNegativeInteger"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="html-map">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attribute name="name" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="area">
+    <xs:complexType>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attribute name="Shape" type="areaShapeType" default="rect"/>
+      <xs:attribute name="coords"/>
+      <xs:attribute name="href" type="xs:anyURI"/>
+      <xs:attribute name="hreflang" type="i18LanguageCode"/>
+      <xs:attribute name="alt" use="required"/>
+      <xs:attribute name="target" type="browsingContext"/>
+      <xs:attribute name="media" type="mediaType" default="screen"/>
+      <xs:attribute name="rel" type="anchorLinkType"/>
+      <xs:attribute name="ping"/>
+      <xs:attribute name="type"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="math">
+    <xs:complexType>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="svg" type="svg:svgType"/>
+
+  <!--======================= Tables =======================================-->
+
+  <xs:element name="table">
+    <xs:complexType>
+      <!-- TODO: cupport order per W3C:
+        In this order: optionally a caption element, followed by either zero or more colgroup elements,
+        followed optionally by a thead element, followed optionally by a tfoot element,
+        followed by either zero or more tbody elements or one or more tr elements, followed optionally
+        by a tfoot element (but there can only be one tfoot element child in total).
+      -->
+      <xs:choice>
+        <xs:element name="caption" type="simpleFlowContentElement" minOccurs="0" maxOccurs="1"/>
+        <xs:element ref="colgroup"/>
+        <xs:element name="thead" type="theadType" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="tfoot" type="tfootType" minOccurs="0" maxOccurs="1"/>
+        <xs:element ref="tbody"/>
+        <xs:element ref="tr"/>
+      </xs:choice>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attribute name="summary"/>
+      <xs:attribute name="border" type="tableBorderType"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="caption" type="simpleFlowContentElement"/>
+
+  <xs:element name="colgroup">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="col"/>
+      </xs:choice>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attribute name="span" type="xs:integer" default="1"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="col">
+    <xs:complexType>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attribute name="span" type="xs:integer" default="1"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="thead" type="theadType"/>
+
+  <xs:complexType name="theadType">
+    <xs:choice>
+      <xs:element ref="tr"/>
+    </xs:choice>
+    <xs:attributeGroup ref="commonAttributeGroup"/>
+  </xs:complexType>
+
+  <xs:element name="tfoot" type="tfootType"/>
+
+  <xs:complexType name="tfootType">
+    <xs:choice>
+      <xs:element ref="tr"/>
+    </xs:choice>
+    <xs:attributeGroup ref="commonAttributeGroup"/>
+  </xs:complexType>
+
+  <xs:element name="tbody">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="tr"/>
+      </xs:choice>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="tr">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element name="th" type="thType"/>
+        <xs:element ref="td"/>
+      </xs:choice>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="th" type="thType"/>
+
+  <xs:complexType name="thType" mixed="true">
+    <xs:choice>
+      <xs:group ref="flowContent"/>
+    </xs:choice>
+    <xs:attributeGroup ref="commonAttributeGroup"/>
+    <xs:attribute name="abbr"/>
+    <xs:attribute name="headers"/>
+    <xs:attribute name="rowspan" default="1" type="xs:positiveInteger"/>
+    <xs:attribute name="colspan" default="1" type="xs:positiveInteger"/>
+    <xs:attribute name="scope" type="thScopeType"/>
+  </xs:complexType>
+
+  <xs:element name="td">
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+      </xs:choice>
+      <xs:attributeGroup ref="commonAttributeGroup"/>
+      <xs:attribute name="headers"/>
+      <xs:attribute name="rowspan" default="1" type="xs:positiveInteger"/>
+      <xs:attribute name="colspan" default="1" type="xs:positiveInteger"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Special element for deriving flow content members -->
+  <xs:element name="FlowContentElement">
+    <xs:complexType>
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType mixed="true" name="simpleFlowContentElement">
+    <xs:choice>
+      <xs:group ref="flowContent"/>
+    </xs:choice>
+    <xs:attributeGroup ref="commonAttributeGroup"/>
+  </xs:complexType>
+
+  <xs:complexType mixed="true" name="simplePhrasingContentElement">
+    <xs:choice>
+      <xs:group ref="phrasingContent"/>
+    </xs:choice>
+    <xs:attributeGroup ref="commonAttributeGroup"/>
+  </xs:complexType>
+
+
+  <!--WeChat XML 自定义-->
+  <xs:group name="customFlowContent">
+    <xs:choice>
+      <xs:any/>
+    </xs:choice>
+  </xs:group>
+
+
+  <xs:attributeGroup name="weChatCoreAttributeGroup">
+    <xs:attribute name="id"/>
+    <xs:attribute name="class"/>
+    <xs:attribute name="name"/>
+    <xs:attribute name="style"/>
+    <xs:attribute name="value"/>
+    <xs:attribute name="hidden"/>
+    <xs:attribute name="classes"/>
+    <xs:attribute name="classify"/>
+    <xs:attribute name="class-name"/>
+    <xs:attribute name="style-name"/>
+    <xs:attribute name="style-class"/>
+    <xs:attribute name="css-name"/>
+    <xs:attribute name="css-class"/>
+    <xs:attribute name="ext-style"/>
+    <xs:attribute name="ext-css"/>
+    <xs:attribute name="ext-css-name"/>
+    <xs:attribute name="ext-class"/>
+    <xs:attribute name="ext-class-name"/>
+    <xs:attribute name="com-style"/>
+    <xs:attribute name="com-css"/>
+    <xs:attribute name="com-css-name"/>
+    <xs:attribute name="com-class"/>
+    <xs:attribute name="com-class-name"/>
+    <xs:attribute name="slot"/>
+    <xs:attribute name="aria-label">
+      <xs:annotation>
+        <xs:documentation>
+          {String}
+          无障碍访问，（属性）元素的额外描述
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="aria-role">
+      <xs:annotation>
+        <xs:documentation>
+          {String}
+          无障碍访问，（属性）元素的额外描述
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="role">
+      <xs:annotation>
+        <xs:documentation>
+          {String}
+          无障碍访问，（属性）元素的额外描述
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attributeGroup ref="wx:weChatLogicAttributeGroup"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="weChatCommonAttributeGroup">
+    <xs:attributeGroup ref="weChatCoreAttributeGroup"/>
+    <xs:attributeGroup ref="weChatCommonEventAttributeGroup"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="weChatCommonEventAttributeGroup">
+    <!--
+     {EventHandle}
+    事件绑定和冒泡：
+      key：以bind或catch开头，然后跟上事件的类型，如bindtap、catchtouchstart。
+      value：是一个字符串，需要在对应的 Page 中定义同名的函数。不然当触发事件的时候会报错。
+      ## bind事件绑定不会阻止冒泡事件向上冒泡
+      ## catch事件绑定可以阻止冒泡事件向上冒泡
+    事件的捕获阶段：
+      ## 捕获阶段位于冒泡阶段之前，且在捕获阶段中，事件到达节点的顺序与冒泡阶段恰好相反。
+      ## 需要在捕获阶段监听事件时，可以采用capture-bind、capture-catch关键字，后者将中断捕获阶段和取消冒泡阶段。
+    -->
+
+    <xs:attribute name="bindtouchstart">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          手指触摸动作开始
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="bindtouchmove">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          手指触摸后移动
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="bindtouchcancel">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          手指触摸动作被打断，如来电提醒，弹窗
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="bindtouchend">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          手指触摸动作结束
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="bindtap">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          手指触摸后马上离开
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="bindlongpress">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          手指触摸后，超过350ms再离开，如果指定了事件回调函数并触发了这个事件，tap事件将不被触发
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="bindlongtap">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          手指触摸后，超过350ms再离开（推荐使用longpress事件代替）
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="bindtransitionstart">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          会在 WXSS transition 或 wx.createAnimation 动画结开始时触发
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="bindtransitionend">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          会在 WXSS transition 或 wx.createAnimation 动画结束后触发
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="bindanimationstart">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          会在一个 WXSS animation 动画开始时触发
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="bindanimationiteration">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          会在一个 WXSS animation 一次迭代结束时触发
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="bindanimationend">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          会在一个 WXSS animation 动画完成时触发
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="bindtouchforcechange">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          在支持 3D Touch 的 iPhone 设备，重按时会触发
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+
+
+    <xs:attribute name="catchtouchstart">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          手指触摸动作开始
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="catchtouchmove">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          手指触摸后移动
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="catchtouchcancel">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          手指触摸动作被打断，如来电提醒，弹窗
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="catchtouchend">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          手指触摸动作结束
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="catchtap">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          手指触摸后马上离开
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="catchlongpress">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          手指触摸后，超过350ms再离开，如果指定了事件回调函数并触发了这个事件，tap事件将不被触发
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="catchlongtap">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          手指触摸后，超过350ms再离开（推荐使用longpress事件代替）
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="catchtransitionstart">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          会在 WXSS transition 或 wx.createAnimation 动画结开始时触发
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="catchtransitionend">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          会在 WXSS transition 或 wx.createAnimation 动画结束后触发
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="catchanimationstart">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          会在一个 WXSS animation 动画开始时触发
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="catchanimationiteration">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          会在一个 WXSS animation 一次迭代结束时触发
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="catchanimationend">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          会在一个 WXSS animation 动画完成时触发
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="catchtouchforcechange">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          在支持 3D Touch 的 iPhone 设备，重按时会触发
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+
+    <xs:attributeGroup ref="wx:weChatCaptureEventAttributeGroup"/>
+    <xs:attributeGroup ref="wx:weChatWxsEventAttributeGroup"/>
+  </xs:attributeGroup>
+
+  <xs:element name="wxs">
+    <xs:annotation>
+      <xs:documentation>
+        WXS（WeiXin Script）是小程序的一套脚本语言，结合 WXML，可以构建出页面的结构。
+        注意
+        wxs 不依赖于运行时的基础库版本，可以在所有版本的小程序中运行。
+        wxs 与 javascript 是不同的语言，有自己的语法，并不和 javascript 一致。
+        wxs 的运行环境和其他 javascript 代码是隔离的，wxs 中不能调用其他 javascript 文件中定义的函数，也不能调用小程序提供的API。
+        wxs 函数不能作为组件的事件回调。
+        由于运行环境的差异，在 iOS 设备上小程序内的 wxs 会比 javascript 代码快 2 ~ 20 倍。在 android 设备上二者运行效率无差异。
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+      </xs:choice>
+      <xs:attributeGroup ref="coreAttributeGroup"/>
+      <xs:attribute name="src" type="xs:anyURI"/>
+      <xs:attribute name="module"/>
+    </xs:complexType>
+  </xs:element>
+
+
+  <xs:element name="import">
+    <xs:annotation>
+      <xs:documentation>
+        import 有作用域的概念，即只会 import 目标文件中定义的 template，而不会 import 目标文件 import 的 template。
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="weChatCoreAttributeGroup"/>
+      <xs:attribute name="src" type="xs:anyURI"/>
+      <xs:attribute name="module"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="include">
+    <xs:annotation>
+      <xs:documentation>
+        include 可以将目标文件除了 template 、 wxs 外的整个代码引入，相当于是拷贝到 include 位置
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="weChatCoreAttributeGroup"/>
+      <xs:attribute name="src" type="xs:anyURI"/>
+      <xs:attribute name="module"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="template">
+    <xs:annotation>
+      <xs:documentation>
+        WXML提供模板（template），可以在模板中定义代码片段，然后在不同的地方调用。
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+        <xs:any/>
+      </xs:choice>
+      <xs:attributeGroup ref="weChatCoreAttributeGroup"/>
+      <xs:attribute name="name">
+        <xs:annotation>
+          <xs:documentation>
+            使用 name 属性，作为模板的名字
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="is">
+        <xs:annotation>
+          <xs:documentation>
+            使用 is 属性，声明需要的使用的模板，然后将模板所需要的 data 传入
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="data">
+        <xs:annotation>
+          <xs:documentation>
+            模板拥有自己的作用域，只能使用 data 传入的数据以及模板定义文件中定义的 wxs 模块。
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="slot">
+    <xs:annotation>
+      <xs:documentation>
+        在组件模板中可以提供一个 slot 节点，用于承载组件引用时提供的子节点
+        在组件的wxml中可以包含 slot 节点，用于承载组件使用者提供的wxml结构。
+        默认情况下，一个组件的wxml中只能有一个slot。需要使用多slot时，可以在组件js中声明启用。
+        multipleSlots: true // 在组件定义时的选项中启用多slot支持
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:attribute name="name">
+        <xs:annotation>
+          <xs:documentation>
+            使用 name 属性，作为slot节点的名字
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+
+
+  <xs:attributeGroup name="weChatHoverAttributeGroup">
+    <xs:attribute name="hover-class" default="none">
+      <xs:annotation>
+        <xs:documentation>
+          {String:none}
+          指定按下去的样式类。当 hover-class="none" 时，没有点击态效果
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="hover-stop-propagation" default="false">
+      <xs:annotation>
+        <xs:documentation>
+          {Boolean:false}
+          指定是否阻止本节点的祖先节点出现点击态
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="hover-start-time" default="50">
+      <xs:annotation>
+        <xs:documentation>
+          {Number:50}
+          按住后多久出现点击态，单位毫秒
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="hover-stay-time" default="400">
+      <xs:annotation>
+        <xs:documentation>
+          {Number:400}
+          手指松开后点击态保留时间，单位毫秒
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:attributeGroup>
+
+  <xs:attributeGroup name="weChatScrollViewAttributeGroup">
+    <xs:attribute name="scroll-x" default="false">
+      <xs:annotation>
+        <xs:documentation>
+          {Boolean:false}
+          允许横向滚动
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="scroll-y" default="false">
+      <xs:annotation>
+        <xs:documentation>
+          {Boolean:false}
+          允许纵向滚动
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="upper-threshold" default="50">
+      <xs:annotation>
+        <xs:documentation>
+          {Number|String:50}
+          距顶部/左边多远时（单位px，2.4.0起支持rpx），触发 scrolltoupper 事件
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="lower-threshold" default="50">
+      <xs:annotation>
+        <xs:documentation>
+          {Number|String:50}
+          距底部/右边多远时（单位px，2.4.0起支持rpx），触发 scrolltolower 事件
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="scroll-top">
+      <xs:annotation>
+        <xs:documentation>
+          {Number|String}
+          设置竖向滚动条位置（单位px，2.4.0起支持rpx）
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="scroll-left">
+      <xs:annotation>
+        <xs:documentation>
+          {Number|String}
+          设置横向滚动条位置（单位px，2.4.0起支持rpx）
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="scroll-into-view">
+      <xs:annotation>
+        <xs:documentation>
+          {String}
+          值应为某子元素id（id不能以数字开头）。设置哪个方向可滚动，则在哪个方向滚动到该元素
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="scroll-with-animation" default="false">
+      <xs:annotation>
+        <xs:documentation>
+          {Boolean:false}
+          在设置滚动条位置时使用动画过渡
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="enable-back-to-top" default="false">
+      <xs:annotation>
+        <xs:documentation>
+          {Boolean:false}
+          iOS点击顶部状态栏、安卓双击标题栏时，滚动条返回顶部，只支持竖向
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="bindscrolltoupper">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          滚动到顶部/左边，会触发 scrolltoupper 事件
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="bindscrolltolower">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          滚动到底部/右边，会触发 scrolltolower 事件
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="bindscroll">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          滚动时触发，event.detail = {scrollLeft, scrollTop, scrollHeight, scrollWidth, deltaX, deltaY}
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="catchscroll">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          滚动时触发，event.detail = {scrollLeft, scrollTop, scrollHeight, scrollWidth, deltaX, deltaY}
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:attributeGroup>
+
+
+  <xs:complexType name="weChatType" mixed="true">
+    <xs:choice>
+      <xs:group ref="flowContent"/>
+      <xs:any/>
+    </xs:choice>
+    <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+    <xs:anyAttribute/>
+  </xs:complexType>
+
+  <xs:complexType name="weChatViewType" mixed="true">
+    <xs:choice>
+      <xs:group ref="flowContent"/>
+    </xs:choice>
+    <xs:attributeGroup ref="weChatHoverAttributeGroup"/>
+    <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+  </xs:complexType>
+
+  <xs:complexType name="weChatScrollViewType" mixed="true">
+    <xs:choice>
+      <xs:group ref="flowContent"/>
+    </xs:choice>
+    <xs:attributeGroup ref="weChatScrollViewAttributeGroup"/>
+    <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+  </xs:complexType>
+
+  <xs:complexType name="weChatSwiperType" mixed="true">
+    <xs:choice>
+      <xs:group ref="flowContent"/>
+    </xs:choice>
+    <xs:attributeGroup ref="weChatSwiperAttributeGroup"/>
+    <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+  </xs:complexType>
+  <xs:attributeGroup name="weChatSwiperAttributeGroup">
+    <xs:attribute name="indicator-dots" default="false">
+      <xs:annotation>
+        <xs:documentation>
+          {Boolean:false}
+          是否显示面板指示点
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="indicator-color" default="rgba(0, 0, 0, .3)">
+      <xs:annotation>
+        <xs:documentation>
+          {Color|String:rgba(0, 0, 0, .3)}
+          指示点颜色
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="indicator-active-color" default="#000000">
+      <xs:annotation>
+        <xs:documentation>
+          {Color|String:#000000}
+          当前选中的指示点颜色
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="autoplay" default="false">
+      <xs:annotation>
+        <xs:documentation>
+          {Boolean:false}
+          是否自动切换
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="current" default="0">
+      <xs:annotation>
+        <xs:documentation>
+          {Number|String:0}
+          当前所在滑块的 index
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="current-item-id">
+      <xs:annotation>
+        <xs:documentation>
+          {String}
+          当前所在滑块的 item-id ，不能与 current 被同时指定
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="interval" default="5000">
+      <xs:annotation>
+        <xs:documentation>
+          {Number|String:5000}
+          自动切换时间间隔
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="duration" default="500">
+      <xs:annotation>
+        <xs:documentation>
+          {Number|String:500}
+          滑动动画时长
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="circular" default="false">
+      <xs:annotation>
+        <xs:documentation>
+          {Boolean:false}
+          是否采用衔接滑动
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="vertical" default="false">
+      <xs:annotation>
+        <xs:documentation>
+          {Boolean:false}
+          滑动方向是否为纵向
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="previous-margin" default="0px">
+      <xs:annotation>
+        <xs:documentation>
+          {String:0px}
+          前边距，可用于露出前一项的一小部分，接受 px 和 rpx 值
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="next-margin" default="0px">
+      <xs:annotation>
+        <xs:documentation>
+          {String:0px}
+          后边距，可用于露出后一项的一小部分，接受 px 和 rpx 值
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="display-multiple-items" default="1">
+      <xs:annotation>
+        <xs:documentation>
+          {Number|String:1}
+          同时显示的滑块数量
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="skip-hidden-item-layout">
+      <xs:annotation>
+        <xs:documentation>
+          {Boolean:false}
+          是否跳过未显示的滑块布局，设为 true 可优化复杂情况下的滑动性能，但会丢失隐藏状态滑块的布局信息
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="bindchange">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          current 改变时会触发 change 事件，event.detail = {current: current, source: source}
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="bindtransition">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          swiper-item 的位置发生改变时会触发 transition 事件，event.detail = {dx: dx, dy: dy}
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="bindanimationfinish">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          动画结束时会触发 animationfinish 事件，event.detail 同上
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:attributeGroup>
+
+
+  <xs:element name="page" type="weChatType">
+    <xs:annotation>
+      <xs:documentation>
+        页面容器。
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="view" type="weChatViewType">
+    <xs:annotation>
+      <xs:documentation>
+        视图容器。
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="scroll-view" type="weChatScrollViewType">
+    <xs:annotation>
+      <xs:documentation>
+        可滚动视图区域。
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="swiper" type="weChatSwiperType">
+    <xs:annotation>
+      <xs:documentation>
+        滑块视图容器。
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="swiper-item">
+    <xs:annotation>
+      <xs:documentation>
+        仅可放置在 swiper 组件中，宽高自动设置为100%。
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+        <xs:any/>
+      </xs:choice>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+      <xs:attribute name="item-id">
+        <xs:annotation>
+          <xs:documentation>
+            {String}
+            该 swiper-item 的标识符
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:attributeGroup name="weChatMovableViewGroup">
+    <xs:attribute name="direction" default="none">
+      <xs:annotation>
+        <xs:documentation>
+          {String:none}
+          movable-view的移动方向，属性值有all、vertical、horizontal、none
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="inertia" default="false">
+      <xs:annotation>
+        <xs:documentation>
+          {Boolean:false}
+          movable-view是否带有惯性
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="out-of-bounds" default="false">
+      <xs:annotation>
+        <xs:documentation>
+          {Boolean:false}
+          超过可移动区域后，movable-view是否还可以移动
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="x">
+      <xs:annotation>
+        <xs:documentation>
+          {Number|String}
+          定义x轴方向的偏移，如果x的值不在可移动范围内，会自动移动到可移动范围；改变x的值会触发动画
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="y">
+      <xs:annotation>
+        <xs:documentation>
+          {Number|String}
+          定义y轴方向的偏移，如果y的值不在可移动范围内，会自动移动到可移动范围；改变y的值会触发动画
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="damping" default="20">
+      <xs:annotation>
+        <xs:documentation>
+          {Number:20}
+          阻尼系数，用于控制x或y改变时的动画和过界回弹的动画，值越大移动越快
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="friction" default="2">
+      <xs:annotation>
+        <xs:documentation>
+          {Number:2}
+          摩擦系数，用于控制惯性滑动的动画，值越大摩擦力越大，滑动越快停止；必须大于0，否则会被设置成默认值
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="disabled" default="false">
+      <xs:annotation>
+        <xs:documentation>
+          {Boolean:false}
+          是否禁用
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="scale" default="false">
+      <xs:annotation>
+        <xs:documentation>
+          {Boolean:false}
+          是否支持双指缩放，默认缩放手势生效区域是在movable-view内
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="scale-min" default="0.5">
+      <xs:annotation>
+        <xs:documentation>
+          {Number:0.5}
+          定义缩放倍数最小值
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="scale-max" default="10">
+      <xs:annotation>
+        <xs:documentation>
+          {Number:10}
+          定义缩放倍数最大值
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="scale-value" default="1">
+      <xs:annotation>
+        <xs:documentation>
+          {Number:1}
+          定义缩放倍数，取值范围为 0.5 - 10
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="animation" default="true">
+      <xs:annotation>
+        <xs:documentation>
+          {Boolean:true}
+          是否使用动画
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="bindchange">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          拖动过程中触发的事件，event.detail = {x: x, y: y, source: source}，其中source表示产生移动的原因，值可为touch（拖动）、touch-out-of-bounds（超出移动范围）、out-of-bounds（超出移动范围后的回弹）、friction（惯性）和空字符串（setData）
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="bindscale">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          缩放过程中触发的事件，event.detail = {x: x, y: y, scale: scale}，其中x和y字段在之后开始支持返回
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="bindhtouchmove">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          初次手指触摸后移动为横向的移动，如果catch此事件，则意味着touchmove事件也被catch
+
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="bindvtouchmove">
+      <xs:annotation>
+        <xs:documentation>
+          初次手指触摸后移动为纵向的移动，如果catch此事件，则意味着touchmove事件也被catch
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="catchhtouchmove">
+      <xs:annotation>
+        <xs:documentation>
+          {EventHandle}
+          初次手指触摸后移动为横向的移动，如果catch此事件，则意味着touchmove事件也被catch
+
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="catchvtouchmove">
+      <xs:annotation>
+        <xs:documentation>
+          初次手指触摸后移动为纵向的移动，如果catch此事件，则意味着touchmove事件也被catch
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+
+    <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+  </xs:attributeGroup>
+  <xs:complexType name="weChatMovableViewType" mixed="true">
+    <xs:choice>
+    </xs:choice>
+    <xs:attributeGroup ref="weChatMovableViewGroup"/>
+  </xs:complexType>
+  <xs:element name="movable-view" type="weChatMovableViewType">
+    <xs:annotation>
+      <xs:documentation>
+        可移动的视图容器，在页面中可以拖拽滑动
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="weChatMovableAreaType" mixed="true">
+    <xs:choice>
+      <xs:element ref="movable-view"/>
+    </xs:choice>
+    <xs:attribute name="scale-area" default="false">
+      <xs:annotation>
+        <xs:documentation>
+          {Boolean:false}
+          当里面的movable-view设置为支持双指缩放时，设置此值可将缩放手势生效区域修改为整个movable-area
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+  </xs:complexType>
+  <xs:element name="movable-area" type="weChatMovableAreaType">
+    <xs:annotation>
+      <xs:documentation>
+        movable-view 的可移动区域
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="cover-view">
+    <xs:annotation>
+      <xs:documentation>
+        覆盖在原生组件之上的文本视图，可覆盖的原生组件包括map、video、canvas、camera、live-player、live-pusher，只支持嵌套cover-view、cover-image，可在cover-view中使用button
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="cover-view"/>
+        <xs:element ref="cover-image"/>
+        <xs:element ref="button"/>
+      </xs:choice>
+      <xs:attribute name="scroll-top">
+        <xs:annotation>
+          <xs:documentation>
+            {Number|String}
+            设置顶部滚动偏移量，仅在设置了 overflow-y: scroll 成为滚动元素后生效（单位px，2.4.0起支持rpx）
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="cover-image">
+    <xs:annotation>
+      <xs:documentation>
+        覆盖在原生组件之上的图片视图，可覆盖的原生组件同cover-view，支持嵌套在cover-view里。
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="src">
+        <xs:annotation>
+          <xs:documentation>
+            {String}
+            图标路径，支持临时路径、网络地址（1.6.0起支持）、云文件ID（2.2.3起支持）。暂不支持base64格式。
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindload">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            图片加载成功时触发
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="binderror">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            图片加载失败时触发
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+
+  <xs:element name="icon">
+    <xs:annotation>
+      <xs:documentation>
+        图标。
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="type">
+        <xs:annotation>
+          <xs:documentation>
+            {String}
+            icon的类型，有效值：success, success_no_circle, info, warn, waiting, cancel, download, search, clear
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="size" default="23px">
+        <xs:annotation>
+          <xs:documentation>
+            {Number|String:23px}
+            icon的大小，单位px（2.4.0起支持rpx）
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="color">
+        <xs:annotation>
+          <xs:documentation>
+            {Color}
+            icon的颜色，同css的color
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="text">
+    <xs:annotation>
+      <xs:documentation>
+        文本。
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="text"/>
+      </xs:choice>
+      <xs:attribute name="selectable" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            文本是否可选
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="space" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {String:false}
+            显示连续空格 space 有效值：
+            (ensp 中文字符空格一半大小)
+            (emsp 中文字符空格大小)
+            (nbsp 根据字体设置的空格大小)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="decode" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            是否解码
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="rich-text">
+    <xs:annotation>
+      <xs:documentation>
+        富文本
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="nodes" default="[]">
+        <xs:annotation>
+          <xs:documentation>
+            {Array|String:[]}
+            节点列表 / HTML String
+            nodes 属性推荐使用 Array 类型，由于组件会将 String 类型转换为 Array 类型，因而性能会有所下降
+          </xs:documentation>
+          <xs:documentation>
+            元素节点：type = node
+            (属性 说明 类型 必填 备注
+            name 标签名 String 是 支持部分受信任的HTML节点
+            attrs 属性 Object 否 支持部分受信任的属性，遵循Pascal命名法
+            children 子节点列表 Array 否 结构和nodes一致)
+          </xs:documentation>
+          <xs:documentation>
+            文本节点：type = text
+            (属性 说明 类型 必填 备注
+            text 文本 String 是 支持entities)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="space">
+        <xs:annotation>
+          <xs:documentation>
+            {String}
+            显示连续空格 space 有效值：
+            (ensp 中文字符空格一半大小)
+            (emsp 中文字符空格大小)
+            (nbsp 根据字体设置的空格大小)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="progress">
+    <xs:annotation>
+      <xs:documentation>
+        进度条。
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="percent">
+        <xs:annotation>
+          <xs:documentation>
+            {Float}
+            百分比0~100
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="show-info" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            在进度条右侧显示百分比
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="border-radius" default="0">
+        <xs:annotation>
+          <xs:documentation>
+            {Number|String:0}
+            圆角大小，单位px（2.4.0起支持rpx）
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="font-size" default="16">
+        <xs:annotation>
+          <xs:documentation>
+            {Number|String:16}
+            右侧百分比字体大小，单位px（2.4.0起支持rpx）
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="stroke-width" default="6">
+        <xs:annotation>
+          <xs:documentation>
+            {Number|String:6}
+            进度条线的宽度，单位px（2.4.0起支持rpx）
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="color" default="#09BB07">
+        <xs:annotation>
+          <xs:documentation>
+            {Color:#09BB07}
+            进度条颜色 （请使用 activeColor）
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="activeColor">
+        <xs:annotation>
+          <xs:documentation>
+            {Color}
+            已选择的进度条的颜色
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="backgroundColor">
+        <xs:annotation>
+          <xs:documentation>
+            {Color}
+            未选择的进度条的颜色
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="active" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            进度条从左往右的动画
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="active-mode" default="backwards">
+        <xs:annotation>
+          <xs:documentation>
+            {String:backwards}
+            backwards: 动画从头播；forwards：动画从上次结束点接着播
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindactiveend">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            动画完成事件
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="button">
+    <xs:annotation>
+      <xs:documentation>
+        按钮
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+        <xs:any/>
+      </xs:choice>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+      <xs:attribute name="size" default="default">
+        <xs:annotation>
+          <xs:documentation>
+            {String:default}
+            按钮的大小 (有效值:default 默认大小,mini 小尺寸)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="type" default="default">
+        <xs:annotation>
+          <xs:documentation>
+            {String:default}
+            按钮的样式类型 (有效值:primary 绿色,default 白色,warn 红色)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="plain" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            按钮是否镂空，背景色透明
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="disabled" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            是否禁用
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="loading" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            名称前是否带 loading 图标
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="form-type">
+        <xs:annotation>
+          <xs:documentation>
+            {String}
+            用于 组件，点击分别会触发 组件的 submit/reset 事件
+            (有效值:submit 提交表单,reset 重置表单)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="open-type">
+        <xs:annotation>
+          <xs:documentation>
+            {String}
+            微信开放能力
+            (有效值:contact 打开客服会话，如果用户在会话中点击消息卡片后返回小程序，可以从 bindcontact 回调中获得具体信息;
+            share 触发用户转发，使用前建议先阅读';
+            getUserInfo 获取用户信息，可以从bindgetuserinfo回调中获取到用户信息;
+            getPhoneNumber 获取用户手机号，可以从bindgetphonenumber回调中获取到用户信息;
+            launchApp 打开APP，可以通过app-parameter属性设定向APP传的参数;
+            openSetting 打开授权设置页;
+            feedback 打开“意见反馈”页面，用户可提交反馈内容并上传，开发者可以登录后进入左侧菜单“客服反馈”页面获取到反馈内容);
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="hover-class" default="button-hover">
+        <xs:annotation>
+          <xs:documentation>
+            {String:button-hover}
+            指定按钮按下去的样式类。当 hover-class="none" 时，没有点击态效果
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="hover-stop-propagation" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            指定是否阻止本节点的祖先节点出现点击态
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="hover-start-time" default="20">
+        <xs:annotation>
+          <xs:documentation>
+            {Number:20}
+            按住后多久出现点击态，单位毫秒
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="hover-stay-time" default="70">
+        <xs:annotation>
+          <xs:documentation>
+            {Number:70}
+            手指松开后点击态保留时间，单位毫秒
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="lang" default="en">
+        <xs:annotation>
+          <xs:documentation>
+            {String:en}
+            指定返回用户信息的语言，zh_CN 简体中文，zh_TW 繁体中文，en 英文。
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindgetuserinfo">
+        <xs:annotation>
+          <xs:documentation>
+            {Handler}
+            用户点击该按钮时，会返回获取到的用户信息，回调的detail数据与返回的一致
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="session-from">
+        <xs:annotation>
+          <xs:documentation>
+            {String}
+            会话来源
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="send-message-title" default="当前标题">
+        <xs:annotation>
+          <xs:documentation>
+            {String:当前标题}
+            会话内消息卡片标题
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="send-message-path" default="当前分享路径">
+        <xs:annotation>
+          <xs:documentation>
+            {String:当前分享路径}
+            会话内消息卡片点击跳转小程序路径
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="send-message-img" default="截图">
+        <xs:annotation>
+          <xs:documentation>
+            {String:截图}
+            会话内消息卡片图片
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="show-message-card" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            显示会话内消息卡片
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindcontact">
+        <xs:annotation>
+          <xs:documentation>
+            {Handler}
+            客服消息回调
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindgetphonenumber">
+        <xs:annotation>
+          <xs:documentation>
+            {Handler}
+            获取用户手机号回调
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="app-parameter">
+        <xs:annotation>
+          <xs:documentation>
+            {String}
+            打开 APP 时，向 APP 传递的参数
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="binderror">
+        <xs:annotation>
+          <xs:documentation>
+            {Handler}
+            当使用开放能力时，发生错误的回调
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindopensetting">
+        <xs:annotation>
+          <xs:documentation>
+            {Handler}
+            在打开授权设置页后回调
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+
+
+  <xs:element name="checkbox-group">
+    <xs:annotation>
+      <xs:documentation>
+        多项选择器，内部由多个checkbox组成。
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+        <xs:any/>
+      </xs:choice>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+      <xs:attribute name="bindchange">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            中选中项发生改变是触发 change 事件，detail = {value:[选中的checkbox的value的数组]}
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="checkbox">
+    <xs:annotation>
+      <xs:documentation>
+        多选项目。
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="value">
+        <xs:annotation>
+          <xs:documentation>
+            {String}
+            标识，选中时触发的 change 事件，并携带 的 value
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="disabled" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            是否禁用
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="checked" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            当前是否选中，可用来设置默认选中
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="color">
+        <xs:annotation>
+          <xs:documentation>
+            {Color}
+            checkbox的颜色，同css的color
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="form">
+    <xs:annotation>
+      <xs:documentation>
+        表单，将组件内的用户输入的switch、input、checkbox、slider 、radio 、picker 提交。
+        当点击 form 表单中 form-type 为 submit 的 button 组件时，会将表单组件中的 value 值进行提交，需要在表单组件中加上 name 来作为 key。
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+        <xs:any/>
+      </xs:choice>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+      <xs:attribute name="report-submit" default="">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean}
+            是否返回 formId 用于发送
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="report-submit-timeout" default="">
+        <xs:annotation>
+          <xs:documentation>
+            {Number}
+            等待一段时间（毫秒数）以确认 formId 是否生效。如果未指定这个参数，formId 有很小的概率是无效的（如遇到网络失败的情况）。指定这个参数将可以检测 formId 是否有效，以这个参数的时间作为这项检测的超时时间。如果失败，将返回 requestFormId:fail 开头的 formId 。
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindsubmit" default="">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            携带 form 中的数据触发 submit 事件，event.detail = {value : {'name': 'value'} , formId: ''}
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindreset" default="">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            表单重置时会触发 reset 事件
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="input">
+    <xs:annotation>
+      <xs:documentation>
+        输入框。该组件是原生组件，使用时请注意相关限制。
+        https://developers.weixin.qq.com/miniprogram/dev/component/native-component.html
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="value">
+        <xs:annotation>
+          <xs:documentation>
+            {String}
+            输入框的初始内容
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="type" default="text">
+        <xs:annotation>
+          <xs:documentation>
+            {String:text}{text 文本输入键盘,number 数字输入键盘,idcard 身份证输入键盘,digit 带小数点的数字键盘}
+            input 的类型
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="password" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            是否是密码类型
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="placeholder">
+        <xs:annotation>
+          <xs:documentation>
+            {String}
+            输入框为空时占位符
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="placeholder-style">
+        <xs:annotation>
+          <xs:documentation>
+            {String}
+            指定 placeholder 的样式
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="placeholder-class" default="input-placeholder">
+        <xs:annotation>
+          <xs:documentation>
+            {String:input-placeholder}
+            指定 placeholder 的样式类
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="disabled" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            是否禁用
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="maxlength" default="140">
+        <xs:annotation>
+          <xs:documentation>
+            {Number:140}
+            最大输入长度，设置为 -1 的时候不限制最大长度
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="cursor-spacing" default="0">
+        <xs:annotation>
+          <xs:documentation>
+            {Number|String:0}
+            指定光标与键盘的距离，单位px（2.4.0起支持rpx）。取 input 距离底部的距离和 cursor-spacing 指定的距离的最小值作为光标与键盘的距离
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="auto-focus" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            (即将废弃，请直接使用 focus )自动聚焦，拉起键盘
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="focus" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            获取焦点
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="confirm-type" default="done">
+        <xs:annotation>
+          <xs:documentation>
+            {String:done}{send:右下角按钮为“发送”,search:右下角按钮为“搜索”,next:右下角按钮为“下一个”,go:右下角按钮为“前往” done:右下角按钮为“完成”}
+            设置键盘右下角按钮的文字，仅在type='text'时生效
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="confirm-hold" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            点击键盘右下角按钮时是否保持键盘不收起
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="cursor">
+        <xs:annotation>
+          <xs:documentation>
+            {Number}
+            指定focus时的光标位置
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="selection-start" default="-1">
+        <xs:annotation>
+          <xs:documentation>
+            {Number:-1}
+            光标起始位置，自动聚集时有效，需与selection-end搭配使用
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="selection-end" default="-1">
+        <xs:annotation>
+          <xs:documentation>
+            {Number:-1}
+            光标结束位置，自动聚集时有效，需与selection-start搭配使用
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="adjust-position" default="true">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:true}
+            键盘弹起时，是否自动上推页面
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindinput">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            键盘输入时触发，event.detail = {value, cursor, keyCode}，keyCode 为键值，2.1.0 起支持，处理函数可以直接 return 一个字符串，将替换输入框的内容。
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindfocus">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            输入框聚焦时触发，event.detail = { value, height }，height 为键盘高度，在基础库 1.9.90 起支持
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindblur">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            输入框失去焦点时触发，event.detail = {value: value}
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindconfirm">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            点击完成按钮时触发，event.detail = {value: value}
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="label">
+    <xs:annotation>
+      <xs:documentation>
+        用来改进表单组件的可用性，使用for属性找到对应的id，或者将控件放在该标签下，当点击时，就会触发对应的控件。
+        for优先级高于内部控件，内部有多个控件的时候默认触发第一个控件。
+        目前可以绑定的控件有：button, checkbox, radio,switch。
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+        <xs:any/>
+      </xs:choice>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+      <xs:attribute name="for" default="绑定控件的 id">
+        <xs:annotation>
+          <xs:documentation>
+            {String:绑定控件的 id}
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="picker">
+    <xs:annotation>
+      <xs:documentation>
+        从底部弹起的滚动选择器，现支持五种选择器，通过mode来区分，分别是普通选择器，多列选择器，时间选择器，日期选择器，省市区选择器，默认是普通选择器。
+        https://developers.weixin.qq.com/miniprogram/dev/component/picker.html
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+        <xs:any/>
+      </xs:choice>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+      <xs:attribute name="mode">
+        <xs:annotation>
+          <xs:documentation>
+            {String}{selector:普通选择器,multiSelector:多列选择器,time:时间选择器,date:日期选择器,region:省市区选择器}
+            mode为 selector 或 multiSelector 时，range 有效
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="range" default="[]">
+        <xs:annotation>
+          <xs:documentation>
+            <!--普通选择器：mode = selector-->
+            {Array|ObjectArray:[]}
+            mode为 selector 或 multiSelector 时，range 有效
+            <!--多列选择器：mode = multiSelector-->
+            {二维Array / 二维Object Array }
+            mode为 selector 或 multiSelector 时，range 有效。二维数组，长度表示多少列，数组的每项表示每列的数据，如[["a","b"], ["c","d"]]
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="range-key">
+        <xs:annotation>
+          <xs:documentation>
+            {String}
+            <!--普通选择器：mode = selector-->
+            (mode=selector)
+            当 range 是一个 Object Array 时，通过 range-key 来指定 Object 中 key 的值作为选择器显示内容
+            <!--多列选择器：mode = multiSelector-->
+            (mode=multiSelector)
+            当 range 是一个 二维Object Array 时，通过 range-key 来指定 Object 中 key 的值作为选择器显示内容
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="value" default="0">
+        <xs:annotation>
+          <xs:documentation>
+            <!--普通选择器：mode = selector-->
+            {Number:0}(mode=selector)
+            value 的值表示选择了 range 中的第几个（下标从 0 开始）
+            <!--多列选择器：mode = multiSelector-->
+            {Array:[]}(mode=multiSelector)
+            value 每一项的值表示选择了 range 对应项中的第几个（下标从 0 开始）
+            <!--时间选择器：mode = time-->
+            {String}(mode=time)
+            表示选中的时间，格式为"hh:mm"
+            <!--日期选择器：mode = date-->
+            {String:0}(mode=date)
+            表示选中的日期，格式为"YYYY-MM-DD"
+            <!--省市区选择器：mode = region-->
+            {Array:[]}(mode=region)
+            表示选中的省市区，默认选中每一列的第一个值
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindchange">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            value 改变时触发 change 事件，event.detail = {value: value}
+            <!--省市区选择器：mode = region-->
+            value 改变时触发 change 事件，event.detail = {value: value, code: code, postcode: postcode}，其中字段code是统计用区划代码，postcode是邮政编码
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="disabled" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            是否禁用
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindcancel">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            取消选择或点遮罩层收起 picker 时触发
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+
+
+      <!--多列选择器：mode = multiSelector-->
+      <xs:attribute name="bindcolumnchange">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            某一列的值改变时触发 columnchange 事件，event.detail = {column: column, value: value}，column 的值表示改变了第几列（下标从0开始），value 的值表示变更值的下标
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+
+
+      <!--时间选择器：mode = time-->
+
+      <xs:attribute name="start">
+        <xs:annotation>
+          <xs:documentation>
+            <!--时间选择器：mode = time-->
+            {String}(mode=time)
+            表示有效时间范围的开始，字符串格式为"hh:mm"
+            <!--日期选择器：mode = date-->
+            {String}(mode=date)
+            表示有效日期范围的开始，字符串格式为"YYYY-MM-DD"
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="end">
+        <xs:annotation>
+          <xs:documentation>
+            <!--时间选择器：mode = time-->
+            {String}(mode=time)
+            表示有效时间范围的结束，字符串格式为"hh:mm"
+            <!--日期选择器：mode = date-->
+            {String}(mode=date)
+            表示有效日期范围的结束，字符串格式为"YYYY-MM-DD"
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+
+      <!--日期选择器：mode = date-->
+      <xs:attribute name="fields" default="day">
+        <xs:annotation>
+          <xs:documentation>
+            {String:day}{year:选择器粒度为年,month:选择器粒度为月份,day:选择器粒度为天}
+            表示选择器的粒度
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+
+
+      <!--省市区选择器：mode = region-->
+      <xs:attribute name="custom-item">
+        <xs:annotation>
+          <xs:documentation>
+            {String}
+            可为每一列的顶部添加一个自定义的项
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="picker-view">
+    <xs:annotation>
+      <xs:documentation>
+        嵌入页面的滚动选择器
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+        <xs:any/>
+      </xs:choice>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+      <xs:attribute name="value" default="数组中的数字依次表示 picker-view 内的 picker-view-column 选择的第几项（下标从 0 开始），数字大于 picker-view-column 可选项长度时，选择最后一项。">
+        <xs:annotation>
+          <xs:documentation>
+            {NumberArray:数组中的数字依次表示 picker-view 内的 picker-view-column 选择的第几项（下标从 0 开始），数字大于 picker-view-column 可选项长度时，选择最后一项。}
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="indicator-style" default="设置选择器中间选中框的样式">
+        <xs:annotation>
+          <xs:documentation>
+            {String:设置选择器中间选中框的样式}
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="indicator-class" default="设置选择器中间选中框的类名">
+        <xs:annotation>
+          <xs:documentation>
+            {String:设置选择器中间选中框的类名}
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="mask-style" default="设置蒙层的样式">
+        <xs:annotation>
+          <xs:documentation>
+            {String:设置蒙层的样式}
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="mask-class" default="设置蒙层的类名">
+        <xs:annotation>
+          <xs:documentation>
+            {String:设置蒙层的类名}
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindchange" default="当滚动选择，value 改变时触发 change 事件，event.detail = {value: value}；value为数组，表示 picker-view 内的 picker-view-column 当前选择的是第几项（下标从 0 开始）">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle:当滚动选择，value 改变时触发 change 事件，event.detail = {value: value}；value为数组，表示 picker-view 内的 picker-view-column 当前选择的是第几项（下标从 0 开始）}
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindpickstart" default="当滚动选择开始时候触发事件">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle:当滚动选择开始时候触发事件}
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindpickend" default="当滚动选择结束时候触发事件">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle:当滚动选择结束时候触发事件}
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="picker-view-column">
+    <xs:annotation>
+      <xs:documentation>
+        仅可放置于 picker-view 中，其孩子节点的高度会自动设置成与picker-view的选中框的高度一致
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attributeGroup ref="weChatCoreAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+
+  <xs:element name="radio-group">
+    <xs:annotation>
+      <xs:documentation>
+        单项选择器，内部由多个 radio 组成。
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+        <xs:any/>
+      </xs:choice>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+      <xs:attribute name="bindchange">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            中的选中项发生变化时触发 change 事件，event.detail = {value: 选中项radio的value}
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="radio">
+    <xs:annotation>
+      <xs:documentation>
+        单选项目
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="value">
+        <xs:annotation>
+          <xs:documentation>
+            {String}
+            标识。当该 选中时， 的 change 事件会携带的value
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="checked" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            当前是否选中
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="disabled" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            是否禁用
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="color">
+        <xs:annotation>
+          <xs:documentation>
+            {Color}
+            radio的颜色，同css的color
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="slider">
+    <xs:annotation>
+      <xs:documentation>
+        滑动选择器。
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="min" default="0">
+        <xs:annotation>
+          <xs:documentation>
+            {Number:0}
+            最小值
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="max" default="100">
+        <xs:annotation>
+          <xs:documentation>
+            {Number:100}
+            最大值
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="step" default="1">
+        <xs:annotation>
+          <xs:documentation>
+            {Number:1}
+            步长，取值必须大于 0，并且可被(max - min)整除
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="disabled" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            是否禁用
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="value" default="0">
+        <xs:annotation>
+          <xs:documentation>
+            {Number:0}
+            当前取值
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="color" default="#e9e9e9">
+        <xs:annotation>
+          <xs:documentation>
+            {Color:#e9e9e9}
+            背景条的颜色（请使用 backgroundColor）
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="selected-color" default="#1aad19">
+        <xs:annotation>
+          <xs:documentation>
+            {Color:#1aad19}
+            已选择的颜色（请使用 activeColor）
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="activeColor" default="#1aad19">
+        <xs:annotation>
+          <xs:documentation>
+            {Color:#1aad19}
+            已选择的颜色
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="backgroundColor" default="#e9e9e9">
+        <xs:annotation>
+          <xs:documentation>
+            {Color:#e9e9e9}
+            背景条的颜色
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="block-size" default="28">
+        <xs:annotation>
+          <xs:documentation>
+            {Number:28}
+            滑块的大小，取值范围为 12 - 28
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="block-color" default="#ffffff">
+        <xs:annotation>
+          <xs:documentation>
+            {Color:#ffffff}
+            滑块的颜色
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="show-value" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            是否显示当前 value
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindchange">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            完成一次拖动后触发的事件，event.detail = {value: value}
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindchanging">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            拖动过程中触发的事件，event.detail = {value: value}
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+
+  <xs:element name="switch">
+    <xs:annotation>
+      <xs:documentation>
+        开关选择器。
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="checked" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            是否选中
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="disabled" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            是否禁用
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="type" default="switch">
+        <xs:annotation>
+          <xs:documentation>
+            {String:switch}
+            样式，有效值：switch, checkbox
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindchange">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            checked 改变时触发 change 事件，event.detail={ value:checked}
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="color">
+        <xs:annotation>
+          <xs:documentation>
+            {Color}
+            switch 的颜色，同 css 的 color
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="textarea">
+    <xs:annotation>
+      <xs:documentation>
+        多行输入框。该组件是原生组件，使用时请注意相关限制。
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="value">
+        <xs:annotation>
+          <xs:documentation>
+            {String}
+            输入框的内容
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="placeholder">
+        <xs:annotation>
+          <xs:documentation>
+            {String}
+            输入框为空时占位符
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="placeholder-style">
+        <xs:annotation>
+          <xs:documentation>
+            {String}
+            指定 placeholder 的样式
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="placeholder-class" default="textarea-placeholder">
+        <xs:annotation>
+          <xs:documentation>
+            {String:textarea-placeholder}
+            指定 placeholder 的样式类
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="disabled" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            是否禁用
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="maxlength" default="140">
+        <xs:annotation>
+          <xs:documentation>
+            {Number:140}
+            最大输入长度，设置为 -1 的时候不限制最大长度
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="auto-focus" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            自动聚焦，拉起键盘。
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="focus" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            获取焦点
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="auto-height" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            是否自动增高，设置auto-height时，style.height不生效
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="fixed" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            如果 textarea 是在一个 position:fixed 的区域，需要显示指定属性 fixed 为 true
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="cursor-spacing" default="0">
+        <xs:annotation>
+          <xs:documentation>
+            {Number|String:0}
+            指定光标与键盘的距离，单位px（2.4.0起支持rpx）。取 textarea 距离底部的距离和 cursor-spacing 指定的距离的最小值作为光标与键盘的距离
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="cursor">
+        <xs:annotation>
+          <xs:documentation>
+            {Number}
+            指定focus时的光标位置
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="show-confirm-bar" default="true">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:true}
+            是否显示键盘上方带有”完成“按钮那一栏
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="selection-start" default="-1">
+        <xs:annotation>
+          <xs:documentation>
+            {Number:-1}
+            光标起始位置，自动聚集时有效，需与selection-end搭配使用
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="selection-end" default="-1">
+        <xs:annotation>
+          <xs:documentation>
+            {Number:-1}
+            光标结束位置，自动聚集时有效，需与selection-start搭配使用
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="adjust-position" default="true">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:true}
+            键盘弹起时，是否自动上推页面
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindfocus">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            输入框聚焦时触发，event.detail = { value, height }，height 为键盘高度，在基础库 1.9.90 起支持
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindblur">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            输入框失去焦点时触发，event.detail = {value, cursor}
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindlinechange">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            输入框行数变化时调用，event.detail = {height: 0, heightRpx: 0, lineCount: 0}
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindinput">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            当键盘输入时，触发 input 事件，event.detail = {value, cursor}，bindinput 处理函数的返回值并不会反映到 textarea 上
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindconfirm">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            点击完成时， 触发 confirm 事件，event.detail = {value: value}
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="navigator">
+    <xs:annotation>
+      <xs:documentation>
+        页面链接。
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+        <xs:any/>
+      </xs:choice>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+      <xs:attribute name="target" default="self">
+        <xs:annotation>
+          <xs:documentation>
+            {String:self}
+            在哪个目标上发生跳转，默认当前小程序，可选值self/miniProgram
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="url" type="xs:anyURI">
+        <xs:annotation>
+          <xs:documentation>
+            {String}
+            当前小程序内的跳转链接
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="open-type" default="navigate">
+        <xs:annotation>
+          <xs:documentation>
+            {String:navigate}{navigate:wx.navigateTo或 wx.navigateToMiniProgram
+            redirect:wx.redirectTo
+            switchTab:wx.switchTab
+            reLaunch:wx.reLaunch
+            navigateBack:wx.reLaunch
+            exit:退出小程序，target="miniProgram"时生效}
+            跳转方式
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="delta">
+        <xs:annotation>
+          <xs:documentation>
+            {Number}
+            当 open-type 为 'navigateBack' 时有效，表示回退的层数
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="app-id">
+        <xs:annotation>
+          <xs:documentation>
+            {String}
+            当target="miniProgram"时有效，要打开的小程序 appId
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="path">
+        <xs:annotation>
+          <xs:documentation>
+            {String}
+            当target="miniProgram"时有效，打开的页面路径，如果为空则打开首页
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="extra-data">
+        <xs:annotation>
+          <xs:documentation>
+            {Object}
+            当target="miniProgram"时有效，需要传递给目标小程序的数据，目标小程序可在 App.onLaunch()，App.onShow() 中获取到这份数据。
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="version" default="release">
+        <xs:annotation>
+          <xs:documentation>
+            {version:release}
+            当target="miniProgram"时有效，要打开的小程序版本，有效值 develop（开发版），trial（体验版），release（正式版），仅在当前小程序为开发版或体验版时此参数有效；如果当前小程序是正式版，则打开的小程序必定是正式版。
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="hover-class" default="navigator-hover">
+        <xs:annotation>
+          <xs:documentation>
+            {String:navigator-hover}
+            指定点击时的样式类，当hover-class="none"时，没有点击态效果
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="hover-stop-propagation" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            指定是否阻止本节点的祖先节点出现点击态
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="hover-start-time" default="50">
+        <xs:annotation>
+          <xs:documentation>
+            {Number:50}
+            按住后多久出现点击态，单位毫秒
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="hover-stay-time" default="600">
+        <xs:annotation>
+          <xs:documentation>
+            {Number:600}
+            手指松开后点击态保留时间，单位毫秒
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindsuccess">
+        <xs:annotation>
+          <xs:documentation>
+            {String}
+            当target="miniProgram"时有效，跳转小程序成功
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindfail">
+        <xs:annotation>
+          <xs:documentation>
+            {String}
+            当target="miniProgram"时有效，跳转小程序失败
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindcomplete">
+        <xs:annotation>
+          <xs:documentation>
+            {String}
+            当target="miniProgram"时有效，跳转小程序完成
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="functional-page-navigator">
+    <xs:annotation>
+      <xs:documentation>
+        这个组件从小程序基础库版本 2.1.0 开始支持。
+        仅在插件的自定义组件中有效，用于跳转到插件功能页。
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:choice>
+        <xs:group ref="flowContent"/>
+        <xs:any/>
+      </xs:choice>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+      <xs:attribute name="version" default="release">
+        <xs:annotation>
+          <xs:documentation>
+            {String:release}
+            跳转到的小程序版本，有效值 develop（开发版），trial（体验版），release（正式版）；线上版本必须设置为 release
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="name">
+        <xs:annotation>
+          <xs:documentation>
+            {String}{loginAndGetUserInfo:用户信息功能页,requestPayment:支付功能页}
+            要跳转到的功能页
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="args" default="null">
+        <xs:annotation>
+          <xs:documentation>
+            {Object:null}
+            功能页参数，参数格式与具体功能页相关
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindsuccess">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandler}
+            功能页返回，且操作成功时触发， detail 格式与具体功能页相关
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindfail">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandler}
+            功能页返回，且操作失败时触发， detail 格式与具体功能页相关
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="audio">
+    <xs:annotation>
+      <xs:documentation>
+        注意：1.6.0 版本开始，该组件不再维护。建议使用能力更强的 wx.createInnerAudioContext 接口
+        音频。
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="id">
+        <xs:annotation>
+          <xs:documentation>
+            {String}
+            audio 组件的唯一标识符
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="src">
+        <xs:annotation>
+          <xs:documentation>
+            {String}
+            要播放音频的资源地址
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="loop" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            是否循环播放
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="controls" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            是否显示默认控件
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="poster">
+        <xs:annotation>
+          <xs:documentation>
+            {String}
+            默认控件上的音频封面的图片资源地址，如果 controls 属性值为 false 则设置 poster 无效
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="name" default="未知音频">
+        <xs:annotation>
+          <xs:documentation>
+            {String:未知音频}
+            默认控件上的音频名字，如果 controls 属性值为 false 则设置 name 无效
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="author" default="未知作者">
+        <xs:annotation>
+          <xs:documentation>
+            {String:未知作者}
+            默认控件上的作者名字，如果 controls 属性值为 false 则设置 author 无效
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="binderror">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            当发生错误时触发 error 事件，detail = {errMsg: MediaError.code}
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindplay">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            当开始/继续播放时触发play事件
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindpause">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            当暂停播放时触发 pause 事件
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindtimeupdate">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            当播放进度改变时触发 timeupdate 事件，detail = {currentTime, duration}
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindended">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            当播放到末尾时触发 ended 事件
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="image">
+    <xs:annotation>
+      <xs:documentation>
+        图片。
+        https://developers.weixin.qq.com/miniprogram/dev/component/image.html
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="src">
+        <xs:annotation>
+          <xs:documentation>
+            {String}
+            图片资源地址，支持云文件ID（2.2.3起）
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="mode" default="scaleToFill">
+        <xs:annotation>
+          <xs:documentation>
+            {String:scaleToFill}
+            图片裁剪、缩放的模式
+            mode 有效值：
+            mode 有 13 种模式，其中 4 种是缩放模式，9 种是裁剪模式。
+            模式 值 说明
+            缩放 scaleToFill 不保持纵横比缩放图片，使图片的宽高完全拉伸至填满 image 元素
+            缩放 aspectFit 保持纵横比缩放图片，使图片的长边能完全显示出来。也就是说，可以完整地将图片显示出来。
+            缩放 aspectFill 保持纵横比缩放图片，只保证图片的短边能完全显示出来。也就是说，图片通常只在水平或垂直方向是完整的，另一个方向将会发生截取。
+            缩放 widthFix 宽度不变，高度自动变化，保持原图宽高比不变
+            裁剪 top 不缩放图片，只显示图片的顶部区域
+            裁剪 bottom 不缩放图片，只显示图片的底部区域
+            裁剪 center 不缩放图片，只显示图片的中间区域
+            裁剪 left 不缩放图片，只显示图片的左边区域
+            裁剪 right 不缩放图片，只显示图片的右边区域
+            裁剪 top left 不缩放图片，只显示图片的左上边区域
+            裁剪 top right 不缩放图片，只显示图片的右上边区域
+            裁剪 bottom left 不缩放图片，只显示图片的左下边区域
+            裁剪 bottom right 不缩放图片，只显示图片的右下边区域
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="lazy-load" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            图片懒加载。只针对page与scroll-view下的image有效
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="binderror">
+        <xs:annotation>
+          <xs:documentation>
+            {HandleEvent}
+            当错误发生时，发布到 AppService 的事件名，事件对象event.detail = {errMsg: 'something wrong'}
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindload">
+        <xs:annotation>
+          <xs:documentation>
+            {HandleEvent}
+            当图片载入完毕时，发布到 AppService 的事件名，事件对象event.detail = {height:'图片高度px', width:'图片宽度px'}
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="video">
+    <xs:annotation>
+      <xs:documentation>
+        视频。该组件是原生组件，使用时请注意相关限制。
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="cover-view"/>
+      </xs:choice>
+      <xs:attribute name="src">
+        <xs:annotation>
+          <xs:documentation>
+            {String}
+            要播放视频的资源地址，支持云文件ID（2.2.3起）
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="initial-time">
+        <xs:annotation>
+          <xs:documentation>
+            {Number}
+            指定视频初始播放位置
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="duration">
+        <xs:annotation>
+          <xs:documentation>
+            {Number}
+            指定视频时长
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="controls" default="true">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:true}
+            是否显示默认播放控件（播放/暂停按钮、播放进度、时间）
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="danmu-list">
+        <xs:annotation>
+          <xs:documentation>
+            {ObjectArray}
+            弹幕列表
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="danmu-btn" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            是否显示弹幕按钮，只在初始化时有效，不能动态变更
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="enable-danmu" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            是否展示弹幕，只在初始化时有效，不能动态变更
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="autoplay" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            是否自动播放
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="loop" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            是否循环播放
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="muted" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            是否静音播放
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="page-gesture" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            在非全屏模式下，是否开启亮度与音量调节手势
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="direction">
+        <xs:annotation>
+          <xs:documentation>
+            {Number}
+            设置全屏时视频的方向，不指定则根据宽高比自动判断。有效值为 0（正常竖向）, 90（屏幕逆时针90度）, -90（屏幕顺时针90度）
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="show-progress" default="true">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:true}
+            若不设置，宽度大于240时才会显示
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="show-fullscreen-btn" default="true">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:true}
+            是否显示全屏按钮
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="show-play-btn" default="true">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:true}
+            是否显示视频底部控制栏的播放按钮
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="show-center-play-btn" default="true">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:true}
+            是否显示视频中间的播放按钮
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="enable-progress-gesture" default="true">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:true}
+            是否开启控制进度的手势
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="objectFit" default="contain">
+        <xs:annotation>
+          <xs:documentation>
+            {String:contain}
+            当视频大小与 video 容器大小不一致时，视频的表现形式。contain：包含，fill：填充，cover：覆盖
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="poster">
+        <xs:annotation>
+          <xs:documentation>
+            {String}
+            视频封面的图片网络资源地址或云文件ID（2.2.3起支持）如果 controls 属性值为 false 则设置 poster 无效
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindplay">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            当开始/继续播放时触发play事件
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindpause">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            当暂停播放时触发 pause 事件
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindended">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            当播放到末尾时触发 ended 事件
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindtimeupdate">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            播放进度变化时触发，event.detail = {currentTime, duration} 。触发频率 250ms 一次
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindfullscreenchange">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            视频进入和退出全屏时触发，event.detail = {fullScreen, direction}，direction取为 vertical 或 horizontal
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindwaiting">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            视频出现缓冲时触发
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="binderror">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            视频播放出错时触发
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindprogress">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            加载进度变化时触发，只支持一段加载。event.detail = {buffered}，百分比
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="camera">
+    <xs:annotation>
+      <xs:documentation>
+        系统相机。该组件是原生组件，使用时请注意相关限制。 扫码二维码功能，需升级微信客户端至6.7.3。
+        需要用户授权 scope.camera
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="cover-view"/>
+      </xs:choice>
+      <xs:attribute name="mode" default="normal">
+        <xs:annotation>
+          <xs:documentation>
+            {String:normal}
+            有效值为 normal, scanCode
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="device-position" default="back">
+        <xs:annotation>
+          <xs:documentation>
+            {String:back}
+            前置或后置，值为front, back
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="flash" default="auto">
+        <xs:annotation>
+          <xs:documentation>
+            {String:auto}
+            闪光灯，值为auto, on, off
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindstop">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            摄像头在非正常终止时触发，如退出后台等情况
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="binderror">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            用户不允许使用摄像头时触发
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindscancode">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            在扫码识别成功时触发，仅在 mode="scanCode" 时生效
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="live-player">
+    <xs:annotation>
+      <xs:documentation>
+        实时音视频播放。该组件是原生组件，使用时请注意相关限制。
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="cover-view"/>
+      </xs:choice>
+      <xs:attribute name="src">
+        <xs:annotation>
+          <xs:documentation>
+            {String}
+            音视频地址。目前仅支持 flv, rtmp 格式
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="mode" default="live">
+        <xs:annotation>
+          <xs:documentation>
+            {String:live}
+            live（直播），RTC（实时通话，该模式时延更低）
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="autoplay" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            自动播放
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="muted" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            是否静音
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="orientation" default="vertical">
+        <xs:annotation>
+          <xs:documentation>
+            {String:vertical}
+            画面方向，可选值有 vertical，horizontal
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="object-fit" default="contain">
+        <xs:annotation>
+          <xs:documentation>
+            {String:contain}
+            填充模式，可选值有 contain，fillCrop
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="background-mute" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            进入后台时是否静音（已废弃，默认退台静音）
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="min-cache" default="1">
+        <xs:annotation>
+          <xs:documentation>
+            {Number:1}
+            最小缓冲区，单位s（RTC 模式推荐 0.2s）
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="max-cache" default="3">
+        <xs:annotation>
+          <xs:documentation>
+            {Number:3}
+            最大缓冲区，单位s（RTC 模式推荐 0.8s）
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindstatechange">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            播放状态变化事件，detail = {code}
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindfullscreenchange">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            全屏变化事件，detail = {direction, fullScreen}
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindnetstatus">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            网络状态通知，detail = {info}
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="live-pusher">
+    <xs:annotation>
+      <xs:documentation>
+        实时音视频录制。该组件是原生组件，使用时请注意相关限制。
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="cover-view"/>
+      </xs:choice>
+      <xs:attribute name="url">
+        <xs:annotation>
+          <xs:documentation>
+            {String}
+            推流地址。目前仅支持 flv, rtmp 格式
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="mode" default="RTC">
+        <xs:annotation>
+          <xs:documentation>
+            {String:RTC}
+            SD（标清）, HD（高清）, FHD（超清）, RTC（实时通话）
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="autopush" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            自动推流
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="muted" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            是否静音
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="enable-camera" default="true">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:true}
+            开启摄像头
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="auto-focus" default="true">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:true}
+            自动聚集
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="orientation" default="vertical">
+        <xs:annotation>
+          <xs:documentation>
+            {String:vertical}
+            vertical，horizontal
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="beauty" default="0">
+        <xs:annotation>
+          <xs:documentation>
+            {Number:0}
+            美颜，取值范围 0-9 ，0 表示关闭
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="whiteness" default="0">
+        <xs:annotation>
+          <xs:documentation>
+            {Number:0}
+            美白，取值范围 0-9 ，0 表示关闭
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="aspect" default="9:16">
+        <xs:annotation>
+          <xs:documentation>
+            {String:9:16}
+            宽高比，可选值有 3:4, 9:16
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="min-bitrate" default="200">
+        <xs:annotation>
+          <xs:documentation>
+            {Number:200}
+            最小码率
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="max-bitrate" default="1000">
+        <xs:annotation>
+          <xs:documentation>
+            {Number:1000}
+            最大码率
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="waiting-image">
+        <xs:annotation>
+          <xs:documentation>
+            {String}
+            进入后台时推流的等待画面
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="waiting-image-hash">
+        <xs:annotation>
+          <xs:documentation>
+            {String}
+            等待画面资源的MD5值
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="zoom" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            调整焦距
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="device-position" default="front">
+        <xs:annotation>
+          <xs:documentation>
+            {String:front}
+            前置或后置，值为front, back
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="background-mute" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            进入后台时是否静音
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindstatechange">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            状态变化事件，detail = {code}
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindnetstatus">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            网络状态通知，detail = {info}
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="binderror">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            渲染错误事件，detail = {errMsg, errCode}
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindbgmstart">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            背景音开始播放时触发
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindbgmprogress">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            背景音进度变化时触发，detail = {progress, duration}
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindbgmcomplete">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            背景音播放完成时触发
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="map">
+    <xs:annotation>
+      <xs:documentation>
+        地图。该组件是原生组件，使用时请注意相关限制。
+        https://developers.weixin.qq.com/miniprogram/dev/component/map.html
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="cover-view"/>
+      </xs:choice>
+      <xs:attribute name="longitude">
+        <xs:annotation>
+          <xs:documentation>
+            {Number}
+            中心经度
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="latitude">
+        <xs:annotation>
+          <xs:documentation>
+            {Number}
+            中心纬度
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="scale" default="16">
+        <xs:annotation>
+          <xs:documentation>
+            {Number:16}
+            缩放级别，取值范围为5-18
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="markers">
+        <xs:annotation>
+          <xs:documentation>
+            {Array}
+            标记点
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="covers">
+        <xs:annotation>
+          <xs:documentation>
+            {Array}
+            即将移除，请使用 markers
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="polyline">
+        <xs:annotation>
+          <xs:documentation>
+            {Array}
+            路线
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="polygons">
+        <xs:annotation>
+          <xs:documentation>
+            {Array}
+            多边形
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="circles">
+        <xs:annotation>
+          <xs:documentation>
+            {Array}
+            圆
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="controls">
+        <xs:annotation>
+          <xs:documentation>
+            {Array}
+            控件（即将废弃，建议使用 代替）
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="include-points">
+        <xs:annotation>
+          <xs:documentation>
+            {Array}
+            缩放视野以包含所有给定的坐标点
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="show-location">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean}
+            显示带有方向的当前定位点
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="subkey">
+        <xs:annotation>
+          <xs:documentation>
+            {String}
+            个性化地图使用的key，仅初始化地图时有效
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="enable-3D" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            展示3D楼块(工具暂不支持）
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="show-compass" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            显示指南针
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="enable-overlooking" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            开启俯视
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="enable-zoom" default="true">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:true}
+            是否支持缩放
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="enable-scroll" default="true">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:true}
+            是否支持拖动
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="enable-rotate" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            是否支持旋转
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindmarkertap">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            点击标记点时触发，会返回marker的id
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindcallouttap">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            点击标记点对应的气泡时触发，会返回marker的id
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindcontroltap">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            点击控件时触发，会返回control的id
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindregionchange">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            视野发生变化时触发
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindtap">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            点击地图时触发
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindupdated">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            在地图渲染更新完成时触发
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindpoitap">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            点击地图poi点时触发
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="canvas">
+    <xs:annotation>
+      <xs:documentation>
+        画布。该组件是原生组件，使用时请注意相关限制。
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="cover-view"/>
+      </xs:choice>
+      <xs:attribute name="canvas-id">
+        <xs:annotation>
+          <xs:documentation>
+            {String}
+            canvas 组件的唯一标识符
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="disable-scroll" default="false">
+        <xs:annotation>
+          <xs:documentation>
+            {Boolean:false}
+            当在 canvas 中移动时且有绑定手势事件时，禁止屏幕滚动以及下拉刷新
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindtouchstart">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            手指触摸动作开始
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindtouchmove">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            手指触摸后移动
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindtouchend">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            手指触摸动作结束
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindtouchcancel">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            手指触摸动作被打断，如来电提醒，弹窗
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindlongtap">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            手指长按 500ms 之后触发，触发了长按事件后进行移动不会触发屏幕的滚动
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="binderror">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            当发生错误时触发 error 事件，detail = {errMsg: 'something wrong'}
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="open-data">
+    <xs:annotation>
+      <xs:documentation>
+        用于展示微信开放的数据。
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="type">
+        <xs:annotation>
+          <xs:documentation>
+            {String}
+            开放数据类型
+            type 有效值：
+            值 说明 最低版本
+            groupName 拉取群名称
+            userNickName 用户昵称
+            userAvatarUrl 用户头像
+            userGender 用户性别
+            userCity 用户所在城市
+            userProvince 用户所在省份
+            userCountry 用户所在国家
+            userLanguage 用户的语言
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="open-gid">
+        <xs:annotation>
+          <xs:documentation>
+            {String}
+            当 type="groupName" 时生效, 群id
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="lang" default="en">
+        <xs:annotation>
+          <xs:documentation>
+            {String:en}
+            当 type="user*" 时生效，以哪种语言展示 userInfo，有效值有：en, zh_CN, zh_TW
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="web-view">
+    <xs:annotation>
+      <xs:documentation>
+        web-view 组件是一个可以用来承载网页的容器，会自动铺满整个小程序页面。
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="src">
+        <xs:annotation>
+          <xs:documentation>
+            {String}
+            webview 指向网页的链接。可打开关联的公众号的文章，其它网页需登录配置业务域名。
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindmessage">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandler}
+            网页向小程序 postMessage 时，会在特定时机（小程序后退、组件销毁、分享）触发并收到消息。e.detail = { data }
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindload">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandler}
+            网页加载成功时候触发此事件。e.detail = { src }
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="binderror">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandler}
+            网页加载失败的时候触发此事件。e.detail = { src }
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="ad">
+    <xs:annotation>
+      <xs:documentation>
+        广告
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="unit-id">
+        <xs:annotation>
+          <xs:documentation>
+            {String}
+            广告单元id，可在的流量主模块新建
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bindload">
+        <xs:annotation>
+          <xs:documentation>
+            {Handler}
+            广告加载成功的回调
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="binderror">
+        <xs:annotation>
+          <xs:documentation>
+            {Handler}
+            当广告发生错误时，触发的事件，可以通过该事件获取错误码及原因，事件对象event.detail = {errCode: 1002}
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="official-account">
+    <xs:annotation>
+      <xs:documentation>
+        用户扫码打开小程序时，开发者可在小程序内配置公众号关注组件，方便用户快捷关注公众号，可嵌套在原生组件内。
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="bindload" default="">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            组件加载失败时触发
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="binderror" default="">
+        <xs:annotation>
+          <xs:documentation>
+            {EventHandle}
+            组件加载失败时触发
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attributeGroup ref="weChatCommonAttributeGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+
+</xs:schema>
+
+
+  <!--
+ getA=function(){
+  console.clear();
+  $("tbody").each(function(i){var xml="";$(this).find('tr').each(function(){
+  $(this).find('a').remove();
+    var $td=$(this).find('td');var t1=$td.eq(1).text().replace(/\s+/g,'').replace("/","|"),t2=$td.eq(2).text().replace(/["']+/g,''),t3=$td.eq(3).text();
+    t2=t2==='无'?'':t2;
+    xml+=`<xs:attribute name="${$td.eq(0).text()}" ${t2&&t2!=='""'? 'default="'+t2+'"':''}>
+          <xs:annotation>
+            <xs:documentation>
+              {${t1}${t2&&t2!=='""'?':'+t2:''}}
+              ${t3}
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        `
+  });console.log(xml);console.log(i)});
+ }
+  -->

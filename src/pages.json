@@ -1,0 +1,178 @@
+{
+  "pages": [
+    {
+      "path": "pages/home/home",
+      "style": {
+        "navigationBarTitleText": "首页",
+        "navigationStyle": "custom",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/category/category",
+      "style": {
+        "navigationBarTitleText": "分类",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/user/user",
+      "style": {
+        "navigationBarTitleText": "用户",
+        "navigationStyle": "custom"
+      }
+    }
+  ],
+  "subPackages": [
+    {
+      "root": "pages/auction",
+      "pages": [
+        {
+          "path": "auction",
+          "style": {
+            "navigationBarTitleText": "我的拍卖",
+            "enablePullDownRefresh": true
+          }
+        }
+      ]
+    },
+    {
+      "root": "pages/lot",
+      "pages": [
+        {
+          "path": "lot",
+          "style": {
+            "navigationBarTitleText": "详情展示",
+            "enablePullDownRefresh": true
+          }
+        },
+        {
+          "path": "comment",
+          "style": {
+            "navigationBarTitleText": "评论"
+          }
+        }
+      ]
+    },
+    {
+      "root": "pages/login",
+      "pages": [
+        {
+          "path": "login",
+          "style": {
+            "navigationBarTitleText": "登录",
+            "navigationStyle": "custom"
+          }
+        }
+      ]
+    },
+    {
+      "root": "pages/search",
+      "pages": [
+        {
+          "path": "search",
+          "style": {
+            "navigationBarTitleText": "搜索"
+          }
+        },
+        {
+          "path": "list",
+          "style": {
+            "navigationBarTitleText": "搜索结果",
+            "navigationStyle": "custom"
+          }
+        }
+      ]
+    },
+    {
+      "root": "pages/profile",
+      "pages": [
+        {
+          "path": "address/address",
+          "style": {
+            "navigationBarTitleText": "地址管理",
+            "enablePullDownRefresh": true
+          }
+        },
+        {
+          "path": "address/add",
+          "style": {
+            "navigationBarTitleText": "添加地址"
+          }
+        },
+        {
+          "path": "setting/setting",
+          "style": {
+            "navigationBarTitleText": "设置"
+          }
+        },
+        {
+          "path": "setting/info",
+          "style": {
+            "navigationBarTitleText": "个人信息"
+          }
+        },
+        {
+          "path": "setting/about",
+          "style": {
+            "navigationBarTitleText": "关于"
+          }
+        }
+      ]
+    },
+    {
+      "root": "pages/order",
+      "pages": [
+        {
+          "path": "order",
+          "style": {
+            "navigationBarTitleText": "订单"
+          }
+        },
+        {
+          "path": "detail",
+          "style": {
+            "navigationBarTitleText": "订单详情",
+            "enablePullDownRefresh": true
+          }
+        }
+      ]
+    }
+  ],
+  "tabBar": {
+    "color": "#c0c4cc",
+    "selectedColor": "#fa436a",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "static/icon/tab-home.png",
+        "selectedIconPath": "static/icon/tab-home-select.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "iconPath": "static/icon/tab-category.png",
+        "selectedIconPath": "static/icon/tab-category-select.png",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "iconPath": "static/icon/tab-user.png",
+        "selectedIconPath": "static/icon/tab-user-select.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "blockchain-auction",
+    "navigationBarBackgroundColor": "#ffffff",
+    "backgroundColor": "#f8f8f8"
+  },
+  "easycom": {
+    "^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue",
+    "^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
+  }
+}
